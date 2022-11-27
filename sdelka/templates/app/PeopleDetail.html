@@ -1,0 +1,75 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/details/people_detail.css'%}">
+<link href="{% static 'images/favicon.ico' %}" rel="shortcut icon">
+		<!-- Bootstrap core CSS -->
+
+<link href="{% static 'css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" />
+<link href="{% static 'css/tobii.min.css' %}" type="text/css" rel="stylesheet" />
+<link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet">
+<!-- Custom  Css -->
+<link href="{% static 'css/style.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt" />
+
+<style>
+body{
+    color: #f0f0f0f;
+    background: linear-gradient(45deg, #062147, #A31A05) !important;
+}
+img{
+    width: 480px;
+}
+.my_grid
+{
+display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.2fr 0.9fr 1fr;
+  gap: 50px 50px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "photo about about"
+    "skills about about"
+    "skills about about";
+}
+
+.photo {
+    grid-area: photo;
+}
+
+.skills {
+    grid-area: skills;
+    background-color: #d6ccc2;
+    padding: 25px 50px;
+    border-radius: 30px;
+}
+
+.about {
+    grid-area: about;
+    background-color: #d6ccc2;
+    padding: 25px 50px;
+    border-radius: 30px;
+}
+ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+</style>
+<div class="container mt-5">
+    <div class="my_grid">
+      <div class="photo">
+        <img src="{{object.picture.url }}">
+      </div>
+      <div class="skills">
+        <ul>
+            <li>Имя: {{object.name}}</li>
+            <li>Должность: {{ object.position }}</li>
+            <li>Дата рождения: {{ object.birthday}}</li>
+            <li> </li>
+        </ul>
+      </div>
+      <div class="about">
+          {{ object.about }}
+      </div>
+    </div>
+</div>

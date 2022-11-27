@@ -1,0 +1,495 @@
+{% load static %}
+{% load compress %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>Sdelka+</title>
+	    <meta name="description" content="Responsive HTML5 Template" />
+	    <meta name="keywords" content="Onepage, creative, modern, bootstrap 5, multipurpose, clean" />
+	    <meta name="author" content="Shreethemes" />
+	    <meta name="website" content="https://shreethemes.in" />
+	    <meta name="email" content="support@shreethemes.in" />
+	    <meta name="version" content="1.0.0" />
+	    <!-- favicon -->
+        <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon">
+        <link href="{% static 'css/itc-slider.css' %}" rel="stylesheet">
+        <script src="{% static 'js/itc-slider.js' %}" defer></script>
+
+		<!-- Bootstrap core CSS -->
+
+	    <link href="{% static 'css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" />
+	    <link href="{% static 'css/tobii.min.css' %}" type="text/css" rel="stylesheet" />
+        <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet">
+	    <!-- Custom  Css -->
+	    <link href="{% static 'css/style.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt" />
+	</head>
+
+	<body>
+        <!-- START NAVBAR -->
+        <nav id="navbar" class="navbar navbar-expand-lg nav-light fixed-top sticky">
+            <div class="container">
+                <a class="navbar-brand" href="">
+                    <span class="logo-light-mode">
+                        <img src="{% static 'images/logo-light.png' %}" style="max-height:50px;" class="l-light" alt="">
+                        <img src="{% static 'images/logo-dark.png' %}" style="max-height:50px;" class="l-dark" alt="">
+                    </span>
+                    <img src="{% static 'images/logo-light.png' %}" class="logo-dark-mode" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i data-feather="menu"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-navlist">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">О нас</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#service">Команда</a>
+                        </li>
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="#price"></a>-->
+<!--                        </li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blog">Блоги</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--end collapse-->
+            </div>
+            <!--end container-->
+        </nav>
+        <!-- END NAVBAR -->
+
+        <!-- Start Hero -->
+        <section class="bg-half-360 pb-5 d-table w-100"
+                    id="home">
+        <!--style="background: url('{% static 'images/bg.jpg' %}');"-->
+            <div class="bg-video-wrapper">
+<!--                <iframe src="https://player.vimeo.com/video/285100401?background=1&autoplay=1&loop=1&byline=0&title=0"></iframe>-->
+<!--                <iframe src="https://www.youtube.com/embed/l1m0vExuJ8E?rel=0&autoplay=1&loop=1&mute=1"-->
+<!--                        frameborder="0"-->
+<!--                        allowfullscreen-->
+<!--                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"-->
+<!--                ></iframe>-->
+                <iframe
+src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&autoplay=1&loop=1&controls=0&modestbranding=1&rel=0&autohide=1&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&mute=1&playlist=l1m0vExuJ8E&"
+                        frameborder="0" allow="autoplay" allowfullscreenx></iframe>
+<!--                <iframe src="https://player.vimeo.com/video/285100401?h=61169417f4&color=f7f7f7&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>-->
+                <!--Note: Vimeo Embed Background Video-->
+
+                <!-- <iframe src="https://www.youtube.com/embed/yba7hPeTSjk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1"></iframe> -->
+                <!--Note: Youtube Embed Background Video-->
+            </div>
+            <div class="bg-overlay bg-black opacity-9"></div>
+            <div class="container mb-5 pb-5">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="title-heading text-center">
+                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>
+                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>
+
+                            <div class="mt-4 pt-2">
+                                <a href="#about" class="btn btn-primary">Узнать</a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End Hero -->
+
+        <!-- Start -->
+
+        <section class="section bg-light overflow-hidden" id="about">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="position-relative">
+                            <img src="{% static 'images/about.png' %}" class="rounded-md img-fluid mx-auto d-block" alt="">
+                            <div class="play-icon">
+                                <a href="#!" data-type="youtube" data-id="KbN5BX_pA0Q" class="play-btn lightbox">
+                                    <i class="mdi mdi-play text-primary rounded-circle bg-white shadow"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-7 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="section-title ms-lg-5">
+                            <h4 class="title mb-4">96% клиентов довольны<br>нашими специалистами.</h4>
+                            <p class="text-muted para-desc mb-0">В компании 19 000+ квалифицированных сотрудников по всей сети. Мы тщательно отбираем и обучаем каждого специалиста по недвижимости, а после сделки клиенты оценивают их работу.</p>
+
+                            <div class="d-inline-flex rounded-md shadow p-4 bg-white mt-4">
+                                <i class="uil uil-shop display-4 mb-0 opacity-5"></i>
+
+                                <div class="content ms-3">
+                                    <h5>Скорее свяжитесь с нами!</h5>
+                                    <p class="text-muted">Напишите нам и мы проконсультируем<br> вас и ответим на все ваши вопросы.</p>
+                                    <a href="#contact" class="btn btn-primary">Написать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+
+            <div class="container mt-100 mt-60">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-2 order-lg-1 mt-4 pt-2 mt-lg-0 pt-lg-0">
+                        <div class="section-title me-lg-4">
+                            <h1 class="title mb-3">Почему с нами лучше?</h1>
+<!--                            <p class="para-desc text-muted">This is just a simple text made for this unique and awesome template, you can replace it with any text.</p>-->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center pt-4">
+                                        <i class="uil uil-pathfinder text-gradient-primary h2"></i>
+                                        <div class="ms-3">
+                                            <h5>Ваша статистика</h5>
+                                            <p class="text-muted mb-0">Ваша статистика</p>
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                                 <div class="col-12">
+                                    <div class="d-flex align-items-center pt-4">
+                                        <i class="uil uil-pathfinder text-gradient-primary h2"></i>
+                                        <div class="ms-3">
+                                            <h5>Ваша статистика</h5>
+                                            <p class="text-muted mb-0">Ваша статистика</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="col-12">
+                                    <div class="d-flex align-items-center pt-4">
+                                        <i class="uil uil-pathfinder text-gradient-primary h2"></i>
+                                        <div class="ms-3">
+                                            <h5>Ваша статистика</h5>
+                                            <p class="text-muted mb-0">Ваша статистика</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center pt-4">
+                                        <i class="uil uil-pathfinder text-gradient-primary h2"></i>
+                                        <div class="ms-3">
+                                            <h5>Ваша статистика</h5>
+                                            <p class="text-muted mb-0">Ваша статистика</p>
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+
+<!--                                <div class="col-12 pt-4">-->
+<!--                                    <a href="" class="btn btn-outline-primary">Install Now <i class="uil uil-arrow-right"></i></a>-->
+<!--                                </div>&lt;!&ndash;end col&ndash;&gt;-->
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-6 order-1 order-lg-2">
+                        <div class="laptop-image">
+                            <div class="position-relative">
+                                <img src="{% static 'images/building.png' %}" class="mx-auto d-block" alt="">
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End -->
+
+        <!-- Start -->
+        <section class="section" id="service">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 mb-4 pb-2">
+                        <div class="section-title text-center">
+                            <h4 class="title mb-4">Наша команда превосходно<br>заключает сделки</h4>
+                            <p class="text-muted para-desc mx-auto mb-0">Люди, которые стараются для вас :</p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="row position-relative z-index-1">
+                    {% block people %}
+                    {% endblock %}
+
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End -->
+
+        <!-- Start -->
+        <section class="section bg-gradient-primary">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="section-title text-center mb-4 pb-2">
+                            <h4 class="title text-white mb-4">Желаете найти работу риэлтором?</h4>
+                            <p class="text-white-50 mx-auto para-desc mb-0">Скорее присоединяйтесь к нашему дружелюбному и профессиональному коллективу!</p>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-lg-8">
+                        <div class="text-center subcribe-form mt-4 pt-2">
+                            <form class="mx-auto">
+                                <div class="form-group mb-0">
+<!--                                    <input type="email" id="subscribe_email" name="email" class="rounded-pill" placeholder="Ваш номер">-->
+                                    <input type="text"  class="rounded-pill" placeholder="Ваш номер">
+                                    <button type="submit" class="btn btn-pills btn-primary border-0">Хочу!</button>
+                                </div>
+                            </form><!--end form-->
+                        </div><!--end subscribe form-->
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End -->
+
+        <!-- Start -->
+<!--        <section class="section" id="price">-->
+<!--            <div class="container">-->
+<!--                <div class="row justify-content-center">-->
+<!--                    <div class="col-12 mb-4 pb-2">-->
+<!--                        <div class="section-title text-center">-->
+<!--                            <h4 class="title mb-4">Choose our package <br> & Active to premium</h4>-->
+<!--                            <p class="text-muted para-desc mx-auto mb-0">This is just a simple text made for this unique and awesome template, you can replace it with any text.</p>-->
+<!--                        </div>-->
+<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                </div>&lt;!&ndash;end row&ndash;&gt;-->
+
+<!--                <div class="row position-relative z-index-1">-->
+<!--                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">-->
+<!--                        <div class="pricing pricing-primary shadow rounded-md text-center bg-white">-->
+<!--                            <div class="border-bottom p-4">-->
+<!--                                <div class="icons text-center mb-4">-->
+<!--                                    <i class="uil uil-trees text-white d-flex align-items-center justify-content-center rounded-pill h3 mb-0 mx-auto"></i>-->
+<!--                                </div>-->
+
+<!--                                <h3 class="text-gradient-primary">Basic</h3>-->
+
+<!--                                <div class="d-flex justify-content-center mb-0">-->
+<!--                                    <span class="h4 mb-0 mt-2">$</span>-->
+<!--                                    <span class="price h1 mb-0">19</span>-->
+<!--                                    <span class="h4 align-self-end mb-1">/month</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="p-4 text-start">-->
+<!--                                <h5>Pricing Features:</h5>-->
+
+<!--                                <ul class="list-unstyled mb-0 ps-0">-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Full Access</li>-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Source Files</li>-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Free Appointments</li>-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Enhanced Security</li>-->
+<!--                                </ul>-->
+
+<!--                                <a href="" class="btn btn-primary w-100 mt-4">Get Started</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+
+<!--                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">-->
+<!--                        <div class="pricing pricing-primary shadow rounded-md text-center bg-white">-->
+<!--                            <div class="border-bottom p-4">-->
+<!--                                <div class="icons text-center mb-4">-->
+<!--                                    <i class="uil uil-shield text-white d-flex align-items-center justify-content-center rounded-pill h3 mb-0 mx-auto"></i>-->
+<!--                                </div>-->
+
+<!--                                <h3 class="text-gradient-primary">Premium</h3>-->
+
+<!--                                <div class="d-flex justify-content-center mb-0">-->
+<!--                                    <span class="h4 mb-0 mt-2">$</span>-->
+<!--                                    <span class="price h1 mb-0">39</span>-->
+<!--                                    <span class="h4 align-self-end mb-1">/month</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="p-4 text-start">-->
+<!--                                <h5>Pricing Features:</h5>-->
+
+<!--                                <ul class="list-unstyled mb-0 ps-0">-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Full Access</li>-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Source Files</li>-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Free Appointments</li>-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Enhanced Security</li>-->
+<!--                                </ul>-->
+
+<!--                                <a href="" class="btn btn-primary w-100 mt-4">Get Started</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+
+<!--                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">-->
+<!--                        <div class="pricing pricing-primary shadow rounded-md text-center bg-white">-->
+<!--                            <div class="border-bottom p-4">-->
+<!--                                <div class="icons text-center mb-4">-->
+<!--                                    <i class="uil uil-rocket text-white d-flex align-items-center justify-content-center rounded-pill h3 mb-0 mx-auto"></i>-->
+<!--                                </div>-->
+
+<!--                                <h3 class="text-gradient-primary">Business</h3>-->
+
+<!--                                <div class="d-flex justify-content-center mb-0">-->
+<!--                                    <span class="h4 mb-0 mt-2">$</span>-->
+<!--                                    <span class="price h1 mb-0">99</span>-->
+<!--                                    <span class="h4 align-self-end mb-1">/month</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="p-4 text-start">-->
+<!--                                <h5>Pricing Features:</h5>-->
+
+<!--                                <ul class="list-unstyled mb-0 ps-0">-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Full Access</li>-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Source Files</li>-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Free Appointments</li>-->
+<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Enhanced Security</li>-->
+<!--                                </ul>-->
+
+<!--                                <a href="" class="btn btn-primary w-100 mt-4">Get Started</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--        </section>&lt;!&ndash;end section&ndash;&gt;-->
+        <!-- End -->
+
+        <!-- Start -->
+        <section class="section bg-light" id="blog">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 mb-4 pb-2">
+                        <div class="section-title text-center">
+                            <h4 class="title mb-4">Наши последние блоги и<br>предложения</h4>
+                            <p class="text-muted para-desc mx-auto mb-0">Скорее ознакомься с парочкой, уверен тебе понравится</p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="row">
+                    {%block blogs%}
+                    {%endblock%}
+
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End -->
+
+        <!-- Start -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 mb-4 pb-2">
+                        <div class="section-title text-center">
+                            <h4 class="title mb-4">Свяжитесь с нами!</h4>
+                            <p class="text-muted para-desc mx-auto mb-0">Заполните форму ниже, чтобы связаться с нами</p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="row align-items-center">
+                    <div class="col-12 mt-4 pt-2">
+                        <form method="POST" action="ContactForm">
+                            {% csrf_token %}
+                            <p class="mb-0" id="error-msg"></p>
+                            <div id="simple-msg"></div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-4">
+                                                <input name="user_name" type="text" class="form-control" placeholder="ФИО :">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="mb-4">
+                                                <input name="user_phone" type="text" class="form-control" placeholder="Номер телефона :">
+                                            </div>
+                                        </div><!--end col-->
+
+                                        <div class="col-12">
+                                            <div class="mb-4">
+                                                <input type="text" name="user_header" class="form-control" placeholder="Тема :">
+                                            </div>
+                                        </div><!--end col-->
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="mb-4">
+                                        <textarea name="user_message" rows="4" class="form-control" placeholder="Сообщение :"></textarea>
+                                    </div>
+                                </div>
+                            </div><!--end row-->
+
+                            <div class="row justify-content-end">
+                                <div class="col-12 text-end">
+                                    <button type="submit" class="btn btn-primary">Отправить</button>
+                                </div><!--end col-->
+                            </div><!--end row-->
+                        </form>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End -->
+
+        <!-- Start Footer -->
+        <footer class="bg-footer footer-bar">
+            <div class="footer-py-30">
+                <div class="container text-center">
+                    <div class="row align-items-center">
+                        <div class="col-sm-3">
+                            <div class="text-sm-start">
+                                <a href="#" class="logo-footer">
+                                    <img src="{% static 'images/logo-light.png' %}" style="max-height:50px;" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                            <div class="text-center">
+                                <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> SdelkaPlus. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="https://shreethemes.in/" target="_blank" class="text-reset">Whozigner</a>.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                            <ul class="list-unstyled social-icon foot-social-icon text-sm-end mb-0">
+<!--                                <li class="list-inline-item mb-0"><a href=""><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>-->
+<!--                                <li class="list-inline-item mb-0"><a href=""><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>-->
+<!--                                <li class="list-inline-item mb-0"><a href=""><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>-->
+                                <li class="list-inline-item mb-0"><a href="https://instagram.com/sdelkaplus.kz?igshid=YmMyMTA2M2Y="><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
+                            </ul><!--end icon-->
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </div><!--end container-->
+            </div>
+        </footer><!--end footer-->
+        <!-- End Footer -->
+
+        <!-- Back to top -->
+        <a href="#" onclick="topFunction()" id="back-to-top" class="back-to-top rounded-pill fs-5"><i data-feather="arrow-up" class="icons align-middle"></i></a>
+        <!-- Back to top -->
+        <!-- JAVASCRIPTS -->
+	    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+	    <script src="{% static 'js/gumshoe.js' %}"></script>
+	    <script src="{% static 'js/tobii.min.js' %}"></script>
+	    <script src="{% static 'js/contact.js' %}"></script>
+        <script src="{% static 'js/feather.min.js' %}"></script>
+	    <!-- Custom -->
+	    <script src="{% static 'js/plugins.init.js' %}"></script>
+	    <script src="{% static 'js/app.js' %}"></script>
+    </body>
+</html>

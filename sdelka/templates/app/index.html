@@ -1,0 +1,73 @@
+{% extends 'app/base.html' %}
+{% block people %}
+<div class="container">
+  <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
+    <div class="itc-slider__wrapper">
+      <div class="itc-slider__items">
+        {% for char in people %}
+            <div class="itc-slider__item">
+              <div class="icons text-center">
+                <img src="{{char.picture.url}}" class="img-fluid rounded-md shadow" alt="">
+        </div>
+        <div class="content mt-4 pt-2">
+            <a href="" class="title text-dark h5">{{ char.name }}</a>
+            <p class="text-muted mt-3" style="
+            max-height: 150px;
+            overflow: hidden;
+            position: relative;">{{ char.about }}</p>
+
+        </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+        <button class="itc-slider__btn itc-slider__btn_prev"></button>
+        <button class="itc-slider__btn itc-slider__btn_next"></button>
+  </div>
+</div>
+{% endblock %}
+
+
+
+{% block blogs %}
+{% for el in items %}
+        <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+            <div class="blog blog-primary">
+                <img src="{{el.picture.url}}" class="img-fluid rounded-md shadow" alt="">
+                <div class="p-4 pb-0">
+                    <a href="" class="title text-dark h5">{{el.title}}</a>
+                    <p class="text-muted mt-3 mb-0" style="
+                        max-height: 50px;
+                        overflow: hidden;
+                        position: relative;">{{ el.content }}</p>
+                    <div class="mt-3">
+                        <a class="btn btn-link primary openBlogDialog" data-bs-toggle="modal" href="#openBlog" data-bs-id="3">Узнать больше <i class="uil uil-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade absolute-center" id="openBlog" tabindex="-1" aria-bs-labelledby="blog-single-label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            {{el.title}}
+                            <button class="btn-close" data-bs-dismiss="modal" aria-bs-label="close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{el.picture.url}}" class="img-fluid rounded-md shadow" alt="">
+
+                            <p name="elId" id="elId">{{ el.content }}</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Modal -->
+        </div>
+{% endfor %}
+{% endblock %}
+<script>
+$(document).on("click", ".openBlogDialog", function () {
+     var myBlogId = $(this).data('id');
+     $(".modal-body #elId").val( myBlogId );
+});
+</script>
