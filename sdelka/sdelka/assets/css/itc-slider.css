@@ -20,7 +20,9 @@
     transition: transform 0.5s ease;
     will-change: transform;
   }
-  
+  .itc-slider__items_hero {
+      counter-reset: slide;
+    }
   .itc-slider__transition-none {
     transition: none;
   }
@@ -33,7 +35,12 @@
     user-select: none;
     will-change: transform;
   }
-  
+  .itc-slider__item_hero {
+      flex: 0 0 100%;
+      max-width: 100%;
+      counter-increment: slide;
+      position: relative;
+    }
   /* кнопки влево и вправо */
   .itc-slider__btn {
     position: absolute;

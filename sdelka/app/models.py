@@ -15,8 +15,7 @@ class People(models.Model):
     about = models.TextField()
     picture = models.ImageField(upload_to='media/people', blank=True)
     position = models.CharField(max_length=255)
-    birthday = models.CharField(max_length=255)
-    whatsapp_number = models.CharField(max_length=12, null=True)
+    number = models.CharField(max_length=12, null=True)
 
     class Meta:
         verbose_name = 'Работник'

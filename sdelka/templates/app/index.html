@@ -1,22 +1,34 @@
 {% extends 'app/base.html' %}
 {% block people %}
+<style>
+    .number{
+        display: none;
+    }
+</style>
 <div class="container">
   <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
     <div class="itc-slider__wrapper">
       <div class="itc-slider__items">
         {% for char in people %}
-            <div class="itc-slider__item">
-              <div class="icons text-center">
-                <img src="{{char.picture.url}}" class="img-fluid rounded-md shadow" alt="">
-        </div>
-        <div class="content mt-4 pt-2">
-            <a href="" class="title text-dark h5">{{ char.name }}</a>
-            <p class="text-muted mt-3" style="
-            max-height: 150px;
-            overflow: hidden;
-            position: relative;">{{ char.about }}</p>
-
-        </div>
+            <div class="itc-slider__item d-flex flex-column justify-content-between">
+                <div>
+                    <div class="icons text-center">
+                        <img src="{{char.picture.url}}" class="img-fluid rounded-md shadow" alt="">
+                    </div>
+                    <div class="content mt-4 pt-2 justify-content-center align-self-center">
+                        <a href="" class="title text-dark h5">{{ char.name }}</a>
+                        <p class="text-muted mt-3" style="
+                        max-height: 150px;
+                        overflow: hidden;
+                        position: relative;">{{ char.about }}</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary" id="btn_number_{{char.id}}" onclick="document.getElementById('btn_number_{{char.id}}').style.display='none';
+                                               document.getElementById('number_{{char.id}}').style.display='inline' ;">
+                                               Показать номер</button>
+                    <a href="tel:+77071882004" disabled="disabled" class="number btn" id="number_{{char.id}}">{{char.number}}</a>
+                </div>
             </div>
         {% endfor %}
       </div>
@@ -27,7 +39,9 @@
 </div>
 {% endblock %}
 
-
+{% block hr%}
+{{ hr_form.hr_number }}
+{%endblock%}
 
 {% block blogs %}
 {% for el in items %}
@@ -65,6 +79,67 @@
         </div>
 {% endfor %}
 {% endblock %}
+
+{% block contact %}
+<section class="section" id="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 mb-4 pb-2">
+                        <div class="section-title text-center">
+                            <h4 class="title mb-4">Свяжитесь с нами!</h4>
+                            <p class="text-muted para-desc mx-auto mb-0">Заполните форму ниже, чтобы связаться с нами</p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="row align-items-center">
+                    <div class="col-12 mt-4 pt-2">
+                        <form method="POST" action="ContactForm">
+                            {% csrf_token %}
+                            <p class="mb-0" id="error-msg"></p>
+                            <div id="simple-msg"></div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-4">
+                                                {{ contact_form.name }}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="mb-4">
+                                                {{ contact_form.number }}
+                                            </div>
+                                        </div><!--end col-->
+
+                                        <div class="col-12">
+                                            <div class="mb-4">
+                                                {{ contact_form.header }}
+                                            </div>
+                                        </div><!--end col-->
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="mb-4">
+                                        {{ contact_form.message }}
+                                    </div>
+                                </div>
+                            </div><!--end row-->
+
+                            <div class="row justify-content-end">
+                                <div class="col-12 text-end">
+                                    <button type="submit" class="btn btn-primary">Отправить</button>
+                                </div><!--end col-->
+                            </div><!--end row-->
+                        </form>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+{%endblock%}
 <script>
 $(document).on("click", ".openBlogDialog", function () {
      var myBlogId = $(this).data('id');

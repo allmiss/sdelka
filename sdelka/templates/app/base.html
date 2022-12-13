@@ -53,9 +53,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#service">Команда</a>
                         </li>
-<!--                        <li class="nav-item">-->
-<!--                            <a class="nav-link" href="#price"></a>-->
-<!--                        </li>-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#price">Тарифы</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#blog">Блоги</a>
                         </li>
@@ -71,45 +71,372 @@
         <!-- END NAVBAR -->
 
         <!-- Start Hero -->
-        <section class="bg-half-360 pb-5 d-table w-100"
-                    id="home">
-        <!--style="background: url('{% static 'images/bg.jpg' %}');"-->
-            <div class="bg-video-wrapper">
-<!--                <iframe src="https://player.vimeo.com/video/285100401?background=1&autoplay=1&loop=1&byline=0&title=0"></iframe>-->
-<!--                <iframe src="https://www.youtube.com/embed/l1m0vExuJ8E?rel=0&autoplay=1&loop=1&mute=1"-->
-<!--                        frameborder="0"-->
-<!--                        allowfullscreen-->
-<!--                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"-->
-<!--                ></iframe>-->
-                <iframe
-src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&autoplay=1&loop=1&controls=0&modestbranding=1&rel=0&autohide=1&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&mute=1&playlist=l1m0vExuJ8E&"
-                        frameborder="0" allow="autoplay" allowfullscreenx></iframe>
-<!--                <iframe src="https://player.vimeo.com/video/285100401?h=61169417f4&color=f7f7f7&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>-->
-                <!--Note: Vimeo Embed Background Video-->
+        <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
+            <div class="itc-slider__wrapper">
+                <div class="itc-slider__items_hero">
+                    <div class="itc-slider__item_hero d-flex flex-column justify-content-between">
+                        <section class="bg-half-360 pb-5 d-table w-100"
+                                    id="home">
+    <!--style="background: url('{% static 'images/bg.jpg' %}');"-->
+<!--            <div class="bg-video-wrapper">-->
+<!--                <iframe-->
+<!--src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&autoplay=1&loop=1&controls=0&modestbranding=1&rel=0&autohide=1&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&mute=1&playlist=l1m0vExuJ8E&"-->
+<!--                        frameborder="0" allow="autoplay" allowfullscreenx></iframe>-->
+<!--                Note: Vimeo Embed Background Video-->
 
-                <!-- <iframe src="https://www.youtube.com/embed/yba7hPeTSjk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1"></iframe> -->
-                <!--Note: Youtube Embed Background Video-->
-            </div>
-            <div class="bg-overlay bg-black opacity-9"></div>
-            <div class="container mb-5 pb-5">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="title-heading text-center">
-                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>
-                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>
-
-                            <div class="mt-4 pt-2">
-                                <a href="#about" class="btn btn-primary">Узнать</a>
+<!--                 <iframe src="https://www.youtube.com/embed/yba7hPeTSjk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1"></iframe> -->
+<!--                Note: YouTube Embed Background Video-->
+<!--            </div>-->
+                            <div class="bg-overlay">
+<!--                                style="-->
+<!--                                                        background-image: url({% static 'images/hero.jpg' %});-->
+<!--                                                        background-repeat:no-repeat;-->
+<!--                                                        background-position: center center;"-->
+                <!--                styles of div: class="bg-black opacity-9"-->
                             </div>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section><!--end section-->
+                            <div class="container mb-5 pb-5">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="title-heading text-center">
+                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>
+                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>
+
+                                            <div class="mt-4 pt-2">
+                                                <a href="#about" class="btn btn-primary">Узнать</a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end container-->
+<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--                            <div class="bg-overlay">-->
+<!--&lt;!&ndash;                                style="&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="container mb-5 pb-5">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="title-heading text-center">-->
+<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
+<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
+
+<!--                                            <div class="mt-4 pt-2">-->
+<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--                        </div>&lt;!&ndash;end item2&ndash;&gt;-->
+<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--                            <div class="bg-overlay">-->
+<!--&lt;!&ndash;                                style="&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="container mb-5 pb-5">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="title-heading text-center">-->
+<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
+<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
+
+<!--                                            <div class="mt-4 pt-2">-->
+<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--                        </div>&lt;!&ndash;end item3&ndash;&gt;-->
+<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--                            <div class="bg-overlay">-->
+<!--&lt;!&ndash;                                style="&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="container mb-5 pb-5">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="title-heading text-center">-->
+<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
+<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
+
+<!--                                            <div class="mt-4 pt-2">-->
+<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--                        </div>&lt;!&ndash;end item4&ndash;&gt;-->
+                        </section>
+                    </div>
+
+                    <div class="itc-slider__item_hero d-flex flex-column justify-content-between">
+                        <section class="bg-half-360 pb-5 d-table w-100"
+                                    id="home">
+    <!--style="background: url('{% static 'images/bg.jpg' %}');"-->
+<!--            <div class="bg-video-wrapper">-->
+<!--                <iframe-->
+<!--src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&autoplay=1&loop=1&controls=0&modestbranding=1&rel=0&autohide=1&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&mute=1&playlist=l1m0vExuJ8E&"-->
+<!--                        frameborder="0" allow="autoplay" allowfullscreenx></iframe>-->
+<!--                Note: Vimeo Embed Background Video-->
+
+<!--                 <iframe src="https://www.youtube.com/embed/yba7hPeTSjk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1"></iframe> -->
+<!--                Note: YouTube Embed Background Video-->
+<!--            </div>-->
+                            <div class="bg-overlay">
+<!--                                style="-->
+<!--                                                        background-image: url({% static 'images/hero.jpg' %});-->
+<!--                                                        background-repeat:no-repeat;-->
+<!--                                                        background-position: center center;"-->
+                <!--                styles of div: class="bg-black opacity-9"-->
+                            </div>
+                            <div class="container mb-5 pb-5">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="title-heading text-center">
+                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>
+                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>
+
+                                            <div class="mt-4 pt-2">
+                                                <a href="#about" class="btn btn-primary">Узнать</a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end container-->
+<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--                            <div class="bg-overlay">-->
+<!--&lt;!&ndash;                                style="&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="container mb-5 pb-5">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="title-heading text-center">-->
+<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
+<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
+
+<!--                                            <div class="mt-4 pt-2">-->
+<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--                        </div>&lt;!&ndash;end item2&ndash;&gt;-->
+<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--                            <div class="bg-overlay">-->
+<!--&lt;!&ndash;                                style="&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="container mb-5 pb-5">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="title-heading text-center">-->
+<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
+<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
+
+<!--                                            <div class="mt-4 pt-2">-->
+<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--                        </div>&lt;!&ndash;end item3&ndash;&gt;-->
+<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--                            <div class="bg-overlay">-->
+<!--&lt;!&ndash;                                style="&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="container mb-5 pb-5">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="title-heading text-center">-->
+<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
+<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
+
+<!--                                            <div class="mt-4 pt-2">-->
+<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--                        </div>&lt;!&ndash;end item4&ndash;&gt;-->
+                        </section>
+                    </div>
+
+                    <div class="itc-slider__item_hero d-flex flex-column justify-content-between">
+                        <section class="bg-half-360 pb-5 d-table w-100"
+                                    id="home">
+    <!--style="background: url('{% static 'images/bg.jpg' %}');"-->
+<!--            <div class="bg-video-wrapper">-->
+<!--                <iframe-->
+<!--src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&autoplay=1&loop=1&controls=0&modestbranding=1&rel=0&autohide=1&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&mute=1&playlist=l1m0vExuJ8E&"-->
+<!--                        frameborder="0" allow="autoplay" allowfullscreenx></iframe>-->
+<!--                Note: Vimeo Embed Background Video-->
+
+<!--                 <iframe src="https://www.youtube.com/embed/yba7hPeTSjk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1"></iframe> -->
+<!--                Note: YouTube Embed Background Video-->
+<!--            </div>-->
+                            <div class="bg-overlay">
+<!--                                style="-->
+<!--                                                        background-image: url({% static 'images/hero.jpg' %});-->
+<!--                                                        background-repeat:no-repeat;-->
+<!--                                                        background-position: center center;"-->
+                <!--                styles of div: class="bg-black opacity-9"-->
+                            </div>
+                            <div class="container mb-5 pb-5">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="title-heading text-center">
+                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>
+                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>
+
+                                            <div class="mt-4 pt-2">
+                                                <a href="#about" class="btn btn-primary">Узнать</a>
+                                            </div>
+                                        </div>
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end container-->
+<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--                            <div class="bg-overlay">-->
+<!--&lt;!&ndash;                                style="&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="container mb-5 pb-5">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="title-heading text-center">-->
+<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
+<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
+
+<!--                                            <div class="mt-4 pt-2">-->
+<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--                        </div>&lt;!&ndash;end item2&ndash;&gt;-->
+<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--                            <div class="bg-overlay">-->
+<!--&lt;!&ndash;                                style="&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="container mb-5 pb-5">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="title-heading text-center">-->
+<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
+<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
+
+<!--                                            <div class="mt-4 pt-2">-->
+<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--                        </div>&lt;!&ndash;end item3&ndash;&gt;-->
+<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--                            <div class="bg-overlay">-->
+<!--&lt;!&ndash;                                style="&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
+<!--                            </div>-->
+<!--                            <div class="container mb-5 pb-5">-->
+<!--                                <div class="row justify-content-center">-->
+<!--                                    <div class="col-12">-->
+<!--                                        <div class="title-heading text-center">-->
+<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
+<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
+
+<!--                                            <div class="mt-4 pt-2">-->
+<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--                        </div>&lt;!&ndash;end item4&ndash;&gt;-->
+                        </section>
+                    </div>
+                </div>
+            <button class="itc-slider__btn itc-slider__btn_prev"></button>
+        <button class="itc-slider__btn itc-slider__btn_next"></button>
+            </div>
+        </div><!--end section-->
         <!-- End Hero -->
 
-        <!-- Start -->
+        <!-- Partners -->
+        <div class="container">
+            <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
+                <div class="itc-slider__wrapper">
+                    <div class="itc-slider__items">
+                        <div class="itc-slider__item">
+                            <div class="icons text-center">
+                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+                            </div>
+                        </div>
+                        <div class="itc-slider__item">
+                            <div class="icons text-center">
+                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+                            </div>
+                        </div>
+                        <div class="itc-slider__item">
+                            <div class="icons text-center">
+                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+                            </div>
+                        </div>
+                        <div class="itc-slider__item">
+                            <div class="icons text-center">
+                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+                            </div>
+                        </div>
+                        <div class="itc-slider__item">
+                            <div class="icons text-center">
+                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="itc-slider__btn itc-slider__btn_prev"></button>
+                <button class="itc-slider__btn itc-slider__btn_next"></button>
+            </div>
+        </div>
+        <!-- End Partners-->
 
+        <!-- Start -->
         <section class="section bg-light overflow-hidden" id="about">
             <div class="container">
                 <div class="row align-items-center">
@@ -127,7 +454,10 @@ src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&aut
                     <div class="col-lg-7 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
                         <div class="section-title ms-lg-5">
                             <h4 class="title mb-4">96% клиентов довольны<br>нашими специалистами.</h4>
-                            <p class="text-muted para-desc mb-0">В компании 19 000+ квалифицированных сотрудников по всей сети. Мы тщательно отбираем и обучаем каждого специалиста по недвижимости, а после сделки клиенты оценивают их работу.</p>
+                            <p class="text-muted para-desc mb-0">Мы успешно работает на рынке недвижимости с 2017 года.
+За это время мы зарекомендовали себя как надежное, успешное и современное агентство недвижимости.
+Мы каждый день улучшаем наш сервис, получая обратную связь от клиентов и партнеров.
+Наша цель - в недалекой перспективе стать агентством недвижимости №1 в сервисе и заботе о клиенте!</p>
 
                             <div class="d-inline-flex rounded-md shadow p-4 bg-white mt-4">
                                 <i class="uil uil-shop display-4 mb-0 opacity-5"></i>
@@ -135,7 +465,8 @@ src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&aut
                                 <div class="content ms-3">
                                     <h5>Скорее свяжитесь с нами!</h5>
                                     <p class="text-muted">Напишите нам и мы проконсультируем<br> вас и ответим на все ваши вопросы.</p>
-                                    <a href="#contact" class="btn btn-primary">Написать</a>
+                                    <a href="#contact" class="btn btn-primary">Купить</a>
+                                    <a href="#contact" class="btn btn-primary">Продать</a>
                                 </div>
                             </div>
                         </div>
@@ -154,8 +485,8 @@ src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&aut
                                     <div class="d-flex align-items-center pt-4">
                                         <i class="uil uil-pathfinder text-gradient-primary h2"></i>
                                         <div class="ms-3">
-                                            <h5>Ваша статистика</h5>
-                                            <p class="text-muted mb-0">Ваша статистика</p>
+                                            <h5>Выход на рынок</h5>
+                                            <p class="text-muted mb-0">c 2017 года</p>
                                         </div>
                                     </div>
                                 </div><!--end col-->
@@ -240,10 +571,10 @@ src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&aut
 
                     <div class="col-lg-8">
                         <div class="text-center subcribe-form mt-4 pt-2">
-                            <form class="mx-auto">
+                            <form class="mx-auto" method="POST" action="HRForm">
                                 <div class="form-group mb-0">
-<!--                                    <input type="email" id="subscribe_email" name="email" class="rounded-pill" placeholder="Ваш номер">-->
-                                    <input type="text"  class="rounded-pill" placeholder="Ваш номер">
+                                    {% csrf_token %}
+                                    {% block hr %}{%endblock%}
                                     <button type="submit" class="btn btn-pills btn-primary border-0">Хочу!</button>
                                 </div>
                             </form><!--end form-->
@@ -255,113 +586,113 @@ src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&aut
         <!-- End -->
 
         <!-- Start -->
-<!--        <section class="section" id="price">-->
-<!--            <div class="container">-->
-<!--                <div class="row justify-content-center">-->
-<!--                    <div class="col-12 mb-4 pb-2">-->
-<!--                        <div class="section-title text-center">-->
-<!--                            <h4 class="title mb-4">Choose our package <br> & Active to premium</h4>-->
+        <section class="section" id="price">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 pb-2">
+                        <div class="section-title text-center">
+                            <h4 class="title mb-4">Тарифы</h4>
 <!--                            <p class="text-muted para-desc mx-auto mb-0">This is just a simple text made for this unique and awesome template, you can replace it with any text.</p>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                </div>&lt;!&ndash;end row&ndash;&gt;-->
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
 
-<!--                <div class="row position-relative z-index-1">-->
-<!--                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">-->
-<!--                        <div class="pricing pricing-primary shadow rounded-md text-center bg-white">-->
-<!--                            <div class="border-bottom p-4">-->
+                <div class="row position-relative z-index-1">
+                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                        <div class="pricing pricing-primary shadow rounded-md text-center bg-white">
+                            <div class="border-bottom p-4">
 <!--                                <div class="icons text-center mb-4">-->
 <!--                                    <i class="uil uil-trees text-white d-flex align-items-center justify-content-center rounded-pill h3 mb-0 mx-auto"></i>-->
 <!--                                </div>-->
 
-<!--                                <h3 class="text-gradient-primary">Basic</h3>-->
+                                <h3 class="text-gradient-primary">Квартиры на вторичном рынке </h3>
 
 <!--                                <div class="d-flex justify-content-center mb-0">-->
 <!--                                    <span class="h4 mb-0 mt-2">$</span>-->
 <!--                                    <span class="price h1 mb-0">19</span>-->
 <!--                                    <span class="h4 align-self-end mb-1">/month</span>-->
 <!--                                </div>-->
-<!--                            </div>-->
+                            </div>
 
-<!--                            <div class="p-4 text-start">-->
-<!--                                <h5>Pricing Features:</h5>-->
+                            <div class="p-4 text-start">
+                                <h5>Прайс: </h5>
 
-<!--                                <ul class="list-unstyled mb-0 ps-0">-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Full Access</li>-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Source Files</li>-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Free Appointments</li>-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Enhanced Security</li>-->
-<!--                                </ul>-->
+                                <ul class="list-unstyled mb-0 ps-0">
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>До 40 000 000 тенге </li>
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>400 000 тенге</li>
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>От 40 000 000 тенге </li>
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>1% от стоимости недвижимости</li>
+                                </ul>
 
-<!--                                <a href="" class="btn btn-primary w-100 mt-4">Get Started</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+                                <a href="" class="btn btn-primary w-100 mt-4">Get Started</a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
 
-<!--                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">-->
-<!--                        <div class="pricing pricing-primary shadow rounded-md text-center bg-white">-->
-<!--                            <div class="border-bottom p-4">-->
+                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                        <div class="pricing pricing-primary shadow rounded-md text-center bg-white">
+                            <div class="border-bottom p-4">
 <!--                                <div class="icons text-center mb-4">-->
 <!--                                    <i class="uil uil-shield text-white d-flex align-items-center justify-content-center rounded-pill h3 mb-0 mx-auto"></i>-->
 <!--                                </div>-->
 
-<!--                                <h3 class="text-gradient-primary">Premium</h3>-->
+                                <h3 class="text-gradient-primary">Частные дома, земельные участки</h3>
 
 <!--                                <div class="d-flex justify-content-center mb-0">-->
 <!--                                    <span class="h4 mb-0 mt-2">$</span>-->
 <!--                                    <span class="price h1 mb-0">39</span>-->
 <!--                                    <span class="h4 align-self-end mb-1">/month</span>-->
 <!--                                </div>-->
-<!--                            </div>-->
+                            </div>
 
-<!--                            <div class="p-4 text-start">-->
-<!--                                <h5>Pricing Features:</h5>-->
+                            <div class="p-4 text-start">
+                                <h5>Прайс: </h5>
 
-<!--                                <ul class="list-unstyled mb-0 ps-0">-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Full Access</li>-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Source Files</li>-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Free Appointments</li>-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Enhanced Security</li>-->
-<!--                                </ul>-->
+                                <ul class="list-unstyled mb-0 ps-0">
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>До 20 000 000 тенге</li>
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>400 000 тенге </li>
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>От 20 000 000 тенге</li>
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>2% от стоимости недвижимости</li>
+                                </ul>
 
-<!--                                <a href="" class="btn btn-primary w-100 mt-4">Get Started</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+                                <a href="" class="btn btn-primary w-100 mt-4">Get Started</a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
 
-<!--                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">-->
-<!--                        <div class="pricing pricing-primary shadow rounded-md text-center bg-white">-->
-<!--                            <div class="border-bottom p-4">-->
+                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                        <div class="pricing pricing-primary shadow rounded-md text-center bg-white">
+                            <div class="border-bottom p-4">
 <!--                                <div class="icons text-center mb-4">-->
 <!--                                    <i class="uil uil-rocket text-white d-flex align-items-center justify-content-center rounded-pill h3 mb-0 mx-auto"></i>-->
 <!--                                </div>-->
 
-<!--                                <h3 class="text-gradient-primary">Business</h3>-->
+                                <h3 class="text-gradient-primary">Аренда недвижимости</h3>
 
 <!--                                <div class="d-flex justify-content-center mb-0">-->
 <!--                                    <span class="h4 mb-0 mt-2">$</span>-->
 <!--                                    <span class="price h1 mb-0">99</span>-->
 <!--                                    <span class="h4 align-self-end mb-1">/month</span>-->
 <!--                                </div>-->
-<!--                            </div>-->
+                            </div>
 
-<!--                            <div class="p-4 text-start">-->
-<!--                                <h5>Pricing Features:</h5>-->
+                            <div class="p-4 text-start">
+                                <h5>Прайс: </h5>
 
-<!--                                <ul class="list-unstyled mb-0 ps-0">-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Full Access</li>-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Source Files</li>-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Free Appointments</li>-->
-<!--                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>Enhanced Security</li>-->
-<!--                                </ul>-->
+                                <ul class="list-unstyled mb-0 ps-0">
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>До 100 000 тенге </li>
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>30 000 тенге </li>
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>От 100 000 тенге </li>
+                                    <li class="text-muted mb-0"><span class="icon h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>30% от стоимости недвижимости</li>
+                                </ul>
 
-<!--                                <a href="" class="btn btn-primary w-100 mt-4">Get Started</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                </div>&lt;!&ndash;end row&ndash;&gt;-->
-<!--            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--        </section>&lt;!&ndash;end section&ndash;&gt;-->
+                                <a href="" class="btn btn-primary w-100 mt-4">Get Started</a>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
         <!-- End -->
 
         <!-- Start -->
@@ -385,65 +716,24 @@ src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&aut
         </section><!--end section-->
         <!-- End -->
 
+
+        <!-- 2gis -->
+<!--        <script src="https://res.smartwidgets.ru/app.js" defer></script>-->
+<!--        <div class="sw-app" data-app="4a17b6a7b7e395552ed52630fbb212ed"></div>-->
+        <!-- end 2giss -->
+
+
+        <!-- contact form -->
         <!-- Start -->
-        <section class="section" id="contact">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 mb-4 pb-2">
-                        <div class="section-title text-center">
-                            <h4 class="title mb-4">Свяжитесь с нами!</h4>
-                            <p class="text-muted para-desc mx-auto mb-0">Заполните форму ниже, чтобы связаться с нами</p>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
+        {% block contact%}{%endblock%}
+        <!-- End -->
 
-                <div class="row align-items-center">
-                    <div class="col-12 mt-4 pt-2">
-                        <form method="POST" action="ContactForm">
-                            {% csrf_token %}
-                            <p class="mb-0" id="error-msg"></p>
-                            <div id="simple-msg"></div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="mb-4">
-                                                <input name="user_name" type="text" class="form-control" placeholder="ФИО :">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="mb-4">
-                                                <input name="user_phone" type="text" class="form-control" placeholder="Номер телефона :">
-                                            </div>
-                                        </div><!--end col-->
-
-                                        <div class="col-12">
-                                            <div class="mb-4">
-                                                <input type="text" name="user_header" class="form-control" placeholder="Тема :">
-                                            </div>
-                                        </div><!--end col-->
-
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="mb-4">
-                                        <textarea name="user_message" rows="4" class="form-control" placeholder="Сообщение :"></textarea>
-                                    </div>
-                                </div>
-                            </div><!--end row-->
-
-                            <div class="row justify-content-end">
-                                <div class="col-12 text-end">
-                                    <button type="submit" class="btn btn-primary">Отправить</button>
-                                </div><!--end col-->
-                            </div><!--end row-->
-                        </form>
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section><!--end section-->
+        <!-- start map-->
+        <section id="map">
+            <div class="container mb-3">
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0c6a1ac2be9b04afd944e7cd37cc98d3e7f26a011f718942162367d0690f1672&amp;source=constructor" width="100%" height="480" frameborder="0"></iframe>
+            </div>
+        </section>
         <!-- End -->
 
         <!-- Start Footer -->

@@ -1,49 +1,53 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.views.generic import DetailView
-from django.http import HttpResponseRedirect
-import urllib
 from .forms import *
-
-
+import requests
 def index(req):
     items = reversed(Blog.objects.all())
     people = People.objects.all()
-    return render(req, 'app/index.html', {'items': items, 'people': people})
+    headers_list = 'Хотел бы продать квартиру', 'Хотел бы купить квартиру',\
+                   'Не могли бы вы подобрать мне квартиру'
 
-class PeopleDetail(DetailView):
-    model = People
-    template_name = 'app/PeopleDetail.html'
-
-class BlogDetail(DetailView):
-    model = Blog
-    template_name = 'app/BlogDetail.html'
-
-def get_contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            number = form.cleaned_data['number']
-            header = form.cleaned_data['header']
-            message = form.cleaned_data['message']
+    context = {}
+    if req.method == 'POST':
+        contact_form = ContactForm(req.POST, data_list=headers_list)
+        hr_form = HRForm(req.POST)
+        if contact_form.is_valid():
+            name = contact_form.cleaned_data['name']
+            number = contact_form.cleaned_data['number']
+            header = contact_form.cleaned_data['header']
+            message = contact_form.cleaned_data['message']
             # bot_username = ''
             token = "5914175010:AAHGRNHJaeAyZmZNkGGAZRJNi0I28zw8Ebk"
-            channel_name = '@plussdelkainvite'
-            arr = {'Фио': '421',
-                   'Номер телефона': '421312',
-                   'Тема': '321',
-                   'Сообщениеs': '21'}
+            channel_name = '-1001808204758'
+            arr = {'Фио': name,
+                   'Номер телефона': number,
+                   'Тема': header,
+                   'Сообщениеs': message}
             txt = ''
             # реализовываешь тут отправку данных в тг канал
             for key, value in arr.items():
                 txt += ''.join(key)
                 txt += ''.join(' ' + value)
                 txt += ''.join('\n')
-            txt = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={channel_name}&parse_mode=html&text={txt}"
-            return HttpResponseRedirect('/thanks/')
-
+            contact_url = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={channel_name}&parse_mode=html&text={txt}"
+            print(requests.get(contact_url).content)
+        if hr_form.is_valid():
+            hr_number = hr_form.cleaned_data['hr_number']
+            token = "5914175010:AAHGRNHJaeAyZmZNkGGAZRJNi0I28zw8Ebk"
+            channel_name = '-1001624941594'
+            data = f'Номер телефона: {hr_number}'
+            hr_url = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={channel_name}&parse_mode=html&text={data}"
+            print(requests.get(hr_url).content)
+        return redirect('/')
     else:
-        form = ContactForm()
-
-    return render(request, 'app/index.html', {'form': form})
+        contact_form = ContactForm(data_list=headers_list)
+        hr_form = HRForm()
+    context  = {
+        'contact_form': contact_form,
+        'hr_form': hr_form,
+        'items': items,
+        'people': people,
+    }
+    return render(req, 'app/index.html', context)
