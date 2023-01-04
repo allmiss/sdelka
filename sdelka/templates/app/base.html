@@ -15,18 +15,178 @@
         <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon">
         <link href="{% static 'css/itc-slider.css' %}" rel="stylesheet">
         <script src="{% static 'js/itc-slider.js' %}" defer></script>
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 		<!-- Bootstrap core CSS -->
-
+        <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
 	    <link href="{% static 'css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" />
 	    <link href="{% static 'css/tobii.min.css' %}" type="text/css" rel="stylesheet" />
         <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css" />
         <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet">
 	    <!-- Custom  Css -->
+        <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
 	    <link href="{% static 'css/style.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt" />
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script src="{%static 'new_files/recs/slider.js'%}"></script>
+        <script src="{%static 'recs/anchorscroller.js'%}"></script>
 	</head>
 
 	<body>
+        <style>
+            .service, .advantage{
+                background-color: #f2f6fa;
+            }
+            .wrap{
+                margin: 20px;
+                background-color: #fff;
+            }
+            .service_item, .advantage_item{
+                padding: 20px;
+                text-align: center;
+            }
+            .service_btn{
+                width: 100%;
+                background: linear-gradient(45deg, #062147, #A31A05) !important;
+                color: #fff;
+            }
+            .service_image{
+                max-width:100%;
+                max-height:100%;
+            }
+            .service_content{
+                overflow: hidden;
+            }
+            .advantage_icon{
+                font-size: 64px;
+            }
+            @media (max-width:641px)
+            {
+                .bonus_img{
+                    display:none;
+                }
+            }
+            #my_about{
+                padding-top: 2%;
+                height: 700px;
+                width: 100%;
+                background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({% static 'images/abou_background.jpg'%});
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+                background-position: center;
+            }
+            .about_image{
+                position: absolute;
+                width: 940px;
+                height: 530px;
+                left: 20%;
+                top: 5px;
+                border-radius: 30px;
+                box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.5);
+                -moz-transform: scaleX(-1);
+                -o-transform: scaleX(-1);
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
+                filter: FlipH;
+                -ms-filter: "FlipH";
+            }
+            .about_block{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                position: absolute;
+                background-color: #fff;
+                width: 600px;
+                height: 500px;
+                top: 150px;
+                left: 5%;
+                border-radius: 30px;
+                box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.5);
+                padding: 25px;
+            }
+            .about_block>div>h4{
+                font-size: 37px;
+            }
+            .about_block>div>p{
+                font-size: 22px;
+                text-align: start;
+            }
+                @media (max-width: 1200px)
+                {
+                    .about_image{
+                        position: unset;
+                        display:block;
+                        margin:0 auto;
+                        margin-bottom: 10px;
+                    }
+                    .about_block{
+                        position: unset;
+                        margin:0 auto;
+                        margin-top: 10px;
+                    }
+                    #my_about{
+                        height: 100%
+                    }
+                }
+            @media (max-width: 992px)
+            {
+                .about_image{
+                    width: 600px;
+                    height: auto;
+                }
+                #my_about{
+                    height: 85%
+                }
+            }
+            @media (max-width: 768px)
+            {
+                .about_image{
+                    width: 400px;
+                    height: auto;
+                }
+                .about_block{
+                    width: 500px;
+                    height: auto;
+                }
+                 #my_about{
+                    height: 73%
+                }
+            }
+            @media (max-width: 520px)
+            {
+                .about_image{
+                    width: 100%;
+                    height: auto;
+                }
+                .about_block{
+                    width: 100%;
+                    height: auto;
+                }
+                 #my_about{
+                    height: 80%
+                }
+                .about_block>div>h4{
+                    font-size: 16px !important;
+                }
+                .about_block>div>p{
+                    font-size: 13px !important;
+                }
+            }
+             @media (max-width: 400px)
+            {
+                .about_image{
+                    width: 100%;
+                    height: auto;
+                }
+                .about_block{
+                    width: 100%;
+                    height: auto;
+                }
+                 #my_about{
+                    height: 100%
+                }
+            }
+        </style>
         <!-- START NAVBAR -->
         <nav id="navbar" class="navbar navbar-expand-lg nav-light fixed-top sticky">
             <div class="container">
@@ -48,10 +208,10 @@
                             <a class="nav-link" href="#home">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">О нас</a>
+                            <a class="nav-link" href="#my_about">О нас</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#service">Команда</a>
+                            <a class="nav-link" href="#team">Команда</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#price">Тарифы</a>
@@ -71,50 +231,8 @@
         <!-- END NAVBAR -->
 
         <!-- Start Hero -->
-        <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
-            <div class="itc-slider__wrapper">
-                <div class="itc-slider__items_hero">
-                    <div class="itc-slider__item_hero d-flex flex-column justify-content-between">
-                        <section class="bg-half-360 pb-5 d-table w-100"
-                                    id="home">
-    <!--style="background: url('{% static 'images/bg.jpg' %}');"-->
-<!--            <div class="bg-video-wrapper">-->
-<!--                <iframe-->
-<!--src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&autoplay=1&loop=1&controls=0&modestbranding=1&rel=0&autohide=1&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&mute=1&playlist=l1m0vExuJ8E&"-->
-<!--                        frameborder="0" allow="autoplay" allowfullscreenx></iframe>-->
-<!--                Note: Vimeo Embed Background Video-->
-
-<!--                 <iframe src="https://www.youtube.com/embed/yba7hPeTSjk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1"></iframe> -->
-<!--                Note: YouTube Embed Background Video-->
-<!--            </div>-->
-                            <div class="bg-overlay">
-<!--                                style="-->
-<!--                                                        background-image: url({% static 'images/hero.jpg' %});-->
-<!--                                                        background-repeat:no-repeat;-->
-<!--                                                        background-position: center center;"-->
-                <!--                styles of div: class="bg-black opacity-9"-->
-                            </div>
-                            <div class="container mb-5 pb-5">
-                                <div class="row justify-content-center">
-                                    <div class="col-12">
-                                        <div class="title-heading text-center">
-                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>
-                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>
-
-                                            <div class="mt-4 pt-2">
-                                                <a href="#about" class="btn btn-primary">Узнать</a>
-                                            </div>
-                                        </div>
-                                    </div><!--end col-->
-                                </div><!--end row-->
-                            </div><!--end container-->
-<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
+<!--        <section class="bg-half-360 pb-5 d-table w-100" id="home">-->
 <!--                            <div class="bg-overlay">-->
-<!--&lt;!&ndash;                                style="&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
 <!--                            </div>-->
 <!--                            <div class="container mb-5 pb-5">-->
 <!--                                <div class="row justify-content-center">-->
@@ -130,415 +248,691 @@
 <!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
 <!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
 <!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--                        </div>&lt;!&ndash;end item2&ndash;&gt;-->
-<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
-<!--                            <div class="bg-overlay">-->
-<!--&lt;!&ndash;                                style="&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="container mb-5 pb-5">-->
-<!--                                <div class="row justify-content-center">-->
-<!--                                    <div class="col-12">-->
-<!--                                        <div class="title-heading text-center">-->
-<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
-<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
-
-<!--                                            <div class="mt-4 pt-2">-->
-<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
-<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--                        </div>&lt;!&ndash;end item3&ndash;&gt;-->
-<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
-<!--                            <div class="bg-overlay">-->
-<!--&lt;!&ndash;                                style="&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="container mb-5 pb-5">-->
-<!--                                <div class="row justify-content-center">-->
-<!--                                    <div class="col-12">-->
-<!--                                        <div class="title-heading text-center">-->
-<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
-<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
-
-<!--                                            <div class="mt-4 pt-2">-->
-<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
-<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--                        </div>&lt;!&ndash;end item4&ndash;&gt;-->
-                        </section>
-                    </div>
-
-                    <div class="itc-slider__item_hero d-flex flex-column justify-content-between">
-                        <section class="bg-half-360 pb-5 d-table w-100"
-                                    id="home">
-    <!--style="background: url('{% static 'images/bg.jpg' %}');"-->
-<!--            <div class="bg-video-wrapper">-->
-<!--                <iframe-->
-<!--src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&autoplay=1&loop=1&controls=0&modestbranding=1&rel=0&autohide=1&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&mute=1&playlist=l1m0vExuJ8E&"-->
-<!--                        frameborder="0" allow="autoplay" allowfullscreenx></iframe>-->
-<!--                Note: Vimeo Embed Background Video-->
-
-<!--                 <iframe src="https://www.youtube.com/embed/yba7hPeTSjk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1"></iframe> -->
-<!--                Note: YouTube Embed Background Video-->
-<!--            </div>-->
-                            <div class="bg-overlay">
-<!--                                style="-->
-<!--                                                        background-image: url({% static 'images/hero.jpg' %});-->
-<!--                                                        background-repeat:no-repeat;-->
-<!--                                                        background-position: center center;"-->
-                <!--                styles of div: class="bg-black opacity-9"-->
-                            </div>
-                            <div class="container mb-5 pb-5">
-                                <div class="row justify-content-center">
-                                    <div class="col-12">
-                                        <div class="title-heading text-center">
-                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>
-                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>
-
-                                            <div class="mt-4 pt-2">
-                                                <a href="#about" class="btn btn-primary">Узнать</a>
-                                            </div>
-                                        </div>
-                                    </div><!--end col-->
-                                </div><!--end row-->
-                            </div><!--end container-->
-<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
-<!--                            <div class="bg-overlay">-->
-<!--&lt;!&ndash;                                style="&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="container mb-5 pb-5">-->
-<!--                                <div class="row justify-content-center">-->
-<!--                                    <div class="col-12">-->
-<!--                                        <div class="title-heading text-center">-->
-<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
-<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
-
-<!--                                            <div class="mt-4 pt-2">-->
-<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
-<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--                        </div>&lt;!&ndash;end item2&ndash;&gt;-->
-<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
-<!--                            <div class="bg-overlay">-->
-<!--&lt;!&ndash;                                style="&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="container mb-5 pb-5">-->
-<!--                                <div class="row justify-content-center">-->
-<!--                                    <div class="col-12">-->
-<!--                                        <div class="title-heading text-center">-->
-<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
-<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
-
-<!--                                            <div class="mt-4 pt-2">-->
-<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
-<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--                        </div>&lt;!&ndash;end item3&ndash;&gt;-->
-<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
-<!--                            <div class="bg-overlay">-->
-<!--&lt;!&ndash;                                style="&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="container mb-5 pb-5">-->
-<!--                                <div class="row justify-content-center">-->
-<!--                                    <div class="col-12">-->
-<!--                                        <div class="title-heading text-center">-->
-<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
-<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
-
-<!--                                            <div class="mt-4 pt-2">-->
-<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
-<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--                        </div>&lt;!&ndash;end item4&ndash;&gt;-->
-                        </section>
-                    </div>
-
-                    <div class="itc-slider__item_hero d-flex flex-column justify-content-between">
-                        <section class="bg-half-360 pb-5 d-table w-100"
-                                    id="home">
-    <!--style="background: url('{% static 'images/bg.jpg' %}');"-->
-<!--            <div class="bg-video-wrapper">-->
-<!--                <iframe-->
-<!--src="https://www.youtube.com/embed/l1m0vExuJ8E?mode=opaque&wmode=transparent&autoplay=1&loop=1&controls=0&modestbranding=1&rel=0&autohide=1&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&mute=1&playlist=l1m0vExuJ8E&"-->
-<!--                        frameborder="0" allow="autoplay" allowfullscreenx></iframe>-->
-<!--                Note: Vimeo Embed Background Video-->
-
-<!--                 <iframe src="https://www.youtube.com/embed/yba7hPeTSjk?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1"></iframe> -->
-<!--                Note: YouTube Embed Background Video-->
-<!--            </div>-->
-                            <div class="bg-overlay">
-<!--                                style="-->
-<!--                                                        background-image: url({% static 'images/hero.jpg' %});-->
-<!--                                                        background-repeat:no-repeat;-->
-<!--                                                        background-position: center center;"-->
-                <!--                styles of div: class="bg-black opacity-9"-->
-                            </div>
-                            <div class="container mb-5 pb-5">
-                                <div class="row justify-content-center">
-                                    <div class="col-12">
-                                        <div class="title-heading text-center">
-                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>
-                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>
-
-                                            <div class="mt-4 pt-2">
-                                                <a href="#about" class="btn btn-primary">Узнать</a>
-                                            </div>
-                                        </div>
-                                    </div><!--end col-->
-                                </div><!--end row-->
-                            </div><!--end container-->
-<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
-<!--                            <div class="bg-overlay">-->
-<!--&lt;!&ndash;                                style="&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="container mb-5 pb-5">-->
-<!--                                <div class="row justify-content-center">-->
-<!--                                    <div class="col-12">-->
-<!--                                        <div class="title-heading text-center">-->
-<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
-<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
-
-<!--                                            <div class="mt-4 pt-2">-->
-<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
-<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--                        </div>&lt;!&ndash;end item2&ndash;&gt;-->
-<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
-<!--                            <div class="bg-overlay">-->
-<!--&lt;!&ndash;                                style="&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="container mb-5 pb-5">-->
-<!--                                <div class="row justify-content-center">-->
-<!--                                    <div class="col-12">-->
-<!--                                        <div class="title-heading text-center">-->
-<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
-<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
-
-<!--                                            <div class="mt-4 pt-2">-->
-<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
-<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--                        </div>&lt;!&ndash;end item3&ndash;&gt;-->
-<!--                        <div class="itc-slider__item_hero d-flex flex-column justify-content-between">-->
-<!--                            <div class="bg-overlay">-->
-<!--&lt;!&ndash;                                style="&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-image: url({% static 'images/hero.jpg' %});&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-repeat:no-repeat;&ndash;&gt;-->
-<!--&lt;!&ndash;                                                        background-position: center center;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                styles of div: class="bg-black opacity-9"&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="container mb-5 pb-5">-->
-<!--                                <div class="row justify-content-center">-->
-<!--                                    <div class="col-12">-->
-<!--                                        <div class="title-heading text-center">-->
-<!--                                            <h4 class="heading text-white mb-4">Ваш эксперт по недвижимости в Астане</h4>-->
-<!--                                            <p class="text-white-50 para-desc mx-auto mb-0">Поможет вам совершить наиболее выгодную сделку.</p>-->
-
-<!--                                            <div class="mt-4 pt-2">-->
-<!--                                                <a href="#about" class="btn btn-primary">Узнать</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>&lt;!&ndash;end col&ndash;&gt;-->
-<!--                                </div>&lt;!&ndash;end row&ndash;&gt;-->
-<!--                            </div>&lt;!&ndash;end container&ndash;&gt;-->
-<!--                        </div>&lt;!&ndash;end item4&ndash;&gt;-->
-                        </section>
-                    </div>
-                </div>
-            <button class="itc-slider__btn itc-slider__btn_prev"></button>
-        <button class="itc-slider__btn itc-slider__btn_next"></button>
+<!--                        </div>&lt;!&ndash;end itc-slider__item_hero&ndash;&gt;-->
+<!--                    </div>&lt;!&ndash;end itc-slider__items_hero&ndash;&gt;-->
+<!--                </div>&lt;!&ndash;itc-slider__wrapper&ndash;&gt;-->
+<!--            </div>&lt;!&ndash;end itc-slider&ndash;&gt;-->
+<!--        </section>-->
+        <section class="slider">
+      <div class="slider-content">
+        <div class="slide sl1">
+          <!-- <div>
+            <h2>Пушкин А.С.</h2>
+            <p>«Я помню чудное мгновенье, передо мной явилась ты,<br>как мимолетное виденье, как гений чистой красоты»</p>
+            <a href="#content" class="more" onclick="return anchorScroller(this)">Далее</a>
+          </div> -->
+          <div class="video-container">
+            <video autoplay muted loop width="auto" height="100%">
+                <!-- class="black" -->
+            <!-- >  -->
+                <source src="{% static 'new_files/img/video.MP4' %}" type="video/mp4" />
+            </video>
+            <div class="caption">
+              <h2>Ваш эксперт по недвижимости в Астане</h2>
+              <p>Поможет вам совершить наиболее выгодную сделку.</p>
             </div>
-        </div><!--end section-->
+        </div>
+        </div>
+        <div class="slide sl2">
+          <div class="all">
+            <div class="second">
+              <p>ТОП 3</p>
+              <p>АГЕНТОВ НЕДВИЖИМОСТИ</p>
+            </div>
+            <div class="second_cards">
+              <div class="top_card">
+                <img src="{% static 'new_files/recs/altyn.webp' %}" alt="">
+                <div class="name">АЛТЫН</div>
+                <a href="https://wa.me/77781784756" class="whatsapp btn btn-primary">Связаться</a>
+              </div>
+              <div class="top_card">
+                <img src="{% static 'new_files/recs/elena.webp' %}" alt="">
+                <div class="name">ЕЛЕНА</div>
+                <a href="https://wa.me/77479506169" class="whatsapp btn btn-primary">Связаться</a>
+              </div>
+              <div class="top_card">
+                <img src="{% static 'new_files/recs/saule.webp' %}" alt="" >
+                <div class="name">САУЛЕ</div>
+                <a href="https://wa.me/77082877145" class="whatsapp btn btn-primary">Связаться</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="slide sl3"><div><h2>Маяковский В.В.</h2><p>«Я волком бы выгрыз бюрократизм.<br>К мандатам почтения нету.»</p><a href="#content" class="more" onclick="return anchorScroller(this)">Далее</a></div></div>
+        <div class="slide sl4"><div><h2>Лермонтов М.Ю.</h2><p>«И скучно и грустно! - и некому руку подать<br>В минуту душевной невзгоды... »</p><a href="#content" class="more" onclick="return anchorScroller(this)">Далее</a></div></div> -->
+      </div>
+    </section>
         <!-- End Hero -->
 
+
         <!-- Partners -->
+        <section id="partners">
+            <div class="partner">
+                <!-- State Organ Partners -->
+                <div class="container">
+                    <div>
+                        <h1 class="text-center">Государственные органы</h1>
+                    </div>
+                    <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
+                        <div class="itc-slider__wrapper">
+                            <div class="itc-slider__items">
+                                {% block StateOrgan %}
+                                {%endblock%}
+                            </div>
+                        </div>
+                        <button class="itc-slider__btn itc-slider__btn_prev"></button>
+                        <button class="itc-slider__btn itc-slider__btn_next"></button>
+                    </div>
+                </div>
+                <!-- End State Organ Partners-->
+
+                <!-- Bank Partners -->
+                <div class="container">
+                    <div>
+                        <h1 class="text-center">Банки</h1>
+                    </div>
+                    <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
+                        <div class="itc-slider__wrapper">
+                            <div class="itc-slider__items">
+                                {% block BankPartner %}
+                                {%endblock%}
+                            </div>
+                        </div>
+                        <button class="itc-slider__btn itc-slider__btn_prev"></button>
+                        <button class="itc-slider__btn itc-slider__btn_next"></button>
+                    </div>
+                </div>
+                <!-- End Bank Partners-->
+
+                <!-- Builders Partners -->
+                <div class="container">
+                    <div>
+                        <h1 class="text-center">Застройщики</h1>
+                    </div>
+                    <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
+                        <div class="itc-slider__wrapper">
+                            <div class="itc-slider__items">
+                                {% block BuilderPartner %}
+                                {%endblock%}
+                            </div>
+                        </div>
+                        <button class="itc-slider__btn itc-slider__btn_prev"></button>
+                        <button class="itc-slider__btn itc-slider__btn_next"></button>
+                    </div>
+                </div>
+                <!-- End Builder Partners-->
+            </div>
+        </section>
+        <!-- End Partners -->
+
+        <!-- Start -->
+        <section id="about">
+      <div class="container">
+        <div class="text">
+          <h2>ЭКСПЕРТ ПО СДЕЛКАМ</h2>
+          <h2>С НЕДВИЖИМОСТЬЮ</h2>
+          <br/>
+          <h2>Риелторы, которые вас понимают</h2>
+        </div>
+      </div>
+      <div class="arrow-down">
+        <svg width="14" height="39" viewBox="0 0 14 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_16_8)">
+            <path d="M7.00001 39C6.76635 39.0005 6.53992 38.9191 6.36001 38.77L0.360006 33.77C0.258747 33.6861 0.175045 33.583 0.113693 33.4666C0.0523409 33.3503 0.0145446 33.2229 0.00246869 33.092C-0.00960718 32.961 0.00427467 32.8289 0.0433192 32.7033C0.0823636 32.5777 0.145804 32.461 0.230006 32.36C0.313955 32.2587 0.417055 32.175 0.533403 32.1137C0.64975 32.0523 0.777057 32.0145 0.908034 32.0025C1.03901 31.9904 1.17108 32.0043 1.29669 32.0433C1.42229 32.0824 1.53896 32.1458 1.64001 32.23L7.00001 36.7L12.36 32.23C12.5642 32.0603 12.8275 31.9786 13.0919 32.003C13.3564 32.0274 13.6003 32.1558 13.77 32.36C13.9397 32.5642 14.0214 32.8275 13.997 33.0919C13.9726 33.3563 13.8442 33.6003 13.64 33.77L7.64001 38.77C7.46009 38.9191 7.23366 39.0005 7.00001 39ZM7.00001 20C6.60444 20 6.21776 20.1173 5.88887 20.3371C5.55997 20.5568 5.30362 20.8692 5.15225 21.2346C5.00087 21.6001 4.96126 22.0022 5.03843 22.3902C5.11561 22.7781 5.30609 23.1345 5.58579 23.4142C5.8655 23.6939 6.22186 23.8844 6.60983 23.9616C6.99779 24.0387 7.39992 23.9991 7.76537 23.8478C8.13083 23.6964 8.44318 23.44 8.66294 23.1111C8.88271 22.7822 9.00001 22.3956 9.00001 22C9.00001 21.4696 8.78929 20.9609 8.41422 20.5858C8.03915 20.2107 7.53044 20 7.00001 20ZM7.00001 10C6.60444 10 6.21776 10.1173 5.88887 10.3371C5.55997 10.5568 5.30362 10.8692 5.15225 11.2346C5.00087 11.6001 4.96126 12.0022 5.03843 12.3902C5.11561 12.7781 5.30609 13.1345 5.58579 13.4142C5.8655 13.6939 6.22186 13.8844 6.60983 13.9616C6.99779 14.0387 7.39992 13.9991 7.76537 13.8478C8.13083 13.6964 8.44318 13.44 8.66294 13.1111C8.88271 12.7822 9.00001 12.3956 9.00001 12C9.00001 11.4696 8.78929 10.9609 8.41422 10.5858C8.03915 10.2107 7.53044 10 7.00001 10ZM7.00001 0C6.60444 0 6.21776 0.117298 5.88887 0.337061C5.55997 0.556824 5.30362 0.869181 5.15225 1.23463C5.00087 1.60009 4.96126 2.00222 5.03843 2.39018C5.11561 2.77814 5.30609 3.13451 5.58579 3.41421C5.8655 3.69392 6.22186 3.8844 6.60983 3.96157C6.99779 4.03874 7.39992 3.99913 7.76537 3.84776C8.13083 3.69638 8.44318 3.44004 8.66294 3.11114C8.88271 2.78224 9.00001 2.39556 9.00001 2C9.00001 1.46957 8.78929 0.960859 8.41422 0.585786C8.03915 0.210714 7.53044 0 7.00001 0V0Z" fill="white"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_16_8">
+              <rect width="14" height="39" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+    </section>
+<section class="about_us">
+        <div class="about_blog">
+            <div class="wrapper">
+                <h4>О нас</h4>
+                <div class="list">
+                    <p>
+                        — Мы успешно работаем на рынке недвижимости с 2017 года.
+                    </p>
+                    <p>
+                        — За это время мы зарекомендовали себя как надежное,
+                        успешное и современное агентство недвижимости.
+                    </p>
+                    <p>
+                        — Мы каждый день улучшаем наш сервис, получая обратную
+                        связь от клиентов и партнеров.
+                    </p>
+                    <p>
+                        — Наша цель - в недалекой перспективе стать агентством
+                        недвижимости №1 в сервисе и заботе о клиенте!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="about_blog_second">
+            <!-- <video src="recs/video.mp4" preload="auto" width="auto" ></video> -->
+            <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Jb5Ge52K0J4?showinfo=0&controls=0&loop=1" frameborder="0" allowfullscreen></iframe> -->
+            <section class="tv">
+                <div class="player">
+                    <img src="{%static 'new_files/recs/tv.jpg' %}" alt="">
+                    <video src="{%static 'new_files/recs/video.mp4' %}" id="video-tv" controls></video>
+                </div>
+            </section>
+        </div>
+    </section>
+    <section id="about_us_numbers">
+        <div class="about_us_numbers">
+            <div class="nums_container">
+                <div class="info">
+                    <h4>О нас в цифрах</h4>
+                    <div class="nums_content">
+                        <p>2017 ГОД ВЫХОДА НА РЫНОК</p>
+                        <p>98% КЛИЕНТОВ ОСТАЛИСЬ ДОВОЛЬНЫ
+                            НАШИМИ УСЛУГАМИ</p>
+                        <p>МЫ ОХВАТЫВАЕМ 80% ДОЛИ РЫНКА СТОЛИЦЫ</p>
+                        <p>70+ СПЕЦИАЛИСТОВ В КОМАНДЕ</p>
+                        <p>10+ ЛЕТ ОПЫТА НАШИХ СОТРУДНИКОВ</p>
+                        <p style="
+                        margin: 0;
+                    ">700 РЕАЛИЗОВАННЫХ ПРОЕКТОВ</p>
+                    </div>
+                </div>
+                <div class="nums_blocks">
+                    <video id="my-video"
+                            class="video-js"
+                            controls
+                            preload="auto"
+                            width="355px"
+                            height="200px"
+                            poster=""
+                            data-setup="{}">
+                      <source src="{%static 'new_files/recs/about_us_nums.mp4' %}" type="video/mp4" />
+                    </video>
+                    <div class="num_card card_2">
+                        <h5>Уже давно продаете свою квартиру или дом?</h5>
+                        <p>Узнайте сейчас как быстрее найти покупателя</p>
+                        <a href="https://api.whatsapp.com/send?phone=77711018877&fbclid=PAAaYjUDmsucWW8lMx_PgymSyXL-Bpcg1L5KKO-jXGG4jq3nYD24_2qF29bxU">Бесплатно получить консультацию</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- End -->
+
+        <!-- Start service-->
+<section id="recommendations">
+        <div class="recs">
+            <div class="container">
+                <div class="title p-2">
+                    <h4>Почему клиенты обращаются снова<br/>и рекомендуют нас друзьям</h4>
+                </div>
+                <div class="recs_content">
+                    <div class="rec_card">
+                        <div class="icon">
+                            <img src="{% static 'new_files/recs/man-vs-bord.svg.svg' %}" alt="" srcset="">
+                        </div>
+                        <div class="description">
+                            Предварительно разработанный маркетинговый план с точным расчетом максимальной цены и нужных сроков.
+                        </div>
+                    </div>
+                    <div class="rec_card justify-content-between">
+                        <div class="icon">
+                            <img src="{% static 'new_files/recs/calendar.svg.svg' %}" alt="" srcset="">
+                        </div>
+                        <div class="description">
+                            Еженедельный отчет о продаже и анализ ситуации на рынке.
+                        </div>
+                        <div class="ezhenedelno">
+                            <p>Еженедельно</p>
+                        </div>
+                    </div>
+                    <div class="rec_card">
+                        <div class="icon">
+                            <img src="{% static 'new_files/recs/man-and-arrows.svg.svg' %}" alt="" srcset="">
+                        </div>
+                        <div class="description">
+                            С раннего утра и до позднего вечера на связи с клиентами, 7 дней в неделю. Всегда и везде вовремя, без отговорок про «астанинские пробки».
+                        </div>
+                    </div>
+                    <div class="rec_card">
+                        <div class="icon">
+                            <img src="{% static 'new_files/recs/calculator.svg.svg' %}" alt="" srcset="">
+                        </div>
+                        <div class="description">
+                            Понятное, полностью открытое, обоснованное вознаграждение. Никогда никаких доплат и дополнительных расходов для клиентов.
+                        </div>
+                    </div>
+                    <div class="rec_card">
+                        <div class="icon">
+                            <img src="{% static 'new_files/recs/tv.svg.svg' %}" alt="" srcset="">
+                        </div>
+                        <div class="description">
+                            Перед каждой сделкой заранее все детали согласуются между всеми участниками в электронном виде. Сделки проходят в позитивной, деловой атмосфере.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="buy_apparts">
+        <div class="appart">
+            <!-- <img class="bg-appart" src="recs/bg-appart.png" class="" alt=""/> -->
+            <div class="wrapper">
+                <div class="left-arrow">
+                    <img src="{% static 'new_files/recs/div_after.png' %}" alt=""/>
+                </div>
+                <div class="apparts_center">
+                    Покупка квартиры - на позитиве
+                </div>
+                <div class="right-arrow">
+                    <img src="{% static 'new_files/recs/div_before.png' %}"/>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="advantages">
         <div class="container">
-            <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
+            <div class="title">
+                Мы знаем, что важнее всего для<br/>вас при покупке недвижимости
+            </div>
+            <div class="content">
+                <div class="content_item d-flex flex-column">
+                    <div class="item one">
+                        <div class="content_title">
+                            <div class="icon">
+                                <img src="{% static 'new_files/recs/most-icon-1.svg.svg' %}"/>
+                            </div>
+                            <div class="content_title_title">
+                                Ваше время
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_content">
+                        Мы просеиваем и обрабатываем десятки и сотни объявлений о продаже, избавляя вас от необходимости тратить время впустую на просмотр заведомо несуществующих вариантов или тех, где есть «подводные камни».
+                        <br/><br/>
+                        Вся работа по одобрению ипотечного кредита в электронном виде. Вам не надо лично ходить в банки. Можно просто прислать документы по электронной почте.
+                    </div>
+                </div>
+                <div class="content_item d-flex flex-column">
+                    <div class="item two">
+                        <div class="content_title">
+                            <div class="icon">
+                                <img src="{% static 'new_files/recs/most-icon-2.svg.svg'%}"/>
+                            </div>
+                            <div class="content_title_title">
+                                Ваши деньги
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_content">
+                        Мы находим квартиры и дома для своих клиентов не только на сайтах и в специальных базах по недвижимости. Мы одни из немногих компании в Астане, профессионально занимающихся покупкой недвижимости на различных торгах и аукционах, которые проводит государство и коммерческие организации. Также мы работаем с базами данных залогового имущества во всех астанинских банках. С нашей помощью клиенты могут найти удачный вариант до 10% дешевле рынка.
+                    </div>
+                </div>
+                <div class="content_item d-flex flex-column">
+                    <div class="item three">
+                        <div class="content_title">
+                            <div class="icon">
+                                <img src="{% static 'new_files/recs/most-icon-3.svg.svg'%}"/>
+                            </div>
+                            <div class="content_title_title">
+                                Ваши нервы
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_content">
+                        Мы представляем полный официальный отчет о юридической чистоте сделки, который содержит конкретные документы и результаты проверок. Вы можете сами убедиться в том, что при покупке у вас на 100% отсутствуют даже гипотетические риски.
+                        <br/><br/>
+                        Проведя за 5 лет работы более 5000 сделок купли-продажи недвижимости, мы ни один раз не были участниками ни одного судебного разбирательства.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+         <section id="instagram">
+        <div class="container">
+            <div class="title">
+                Следите за нами в Instagram
+            </div>
+            <div class="itc-slider" data-slider="itc-slider" data-loop="true" data-autoplay="true">
                 <div class="itc-slider__wrapper">
                     <div class="itc-slider__items">
-                        <div class="itc-slider__item">
-                            <div class="icons text-center">
-                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+                        <!-- <div class="phones"> -->
+                            <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Cl8s4eAAfBG/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/Cl8s4eAAfBG/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/Cl8s4eAAfBG/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="itc-slider__item">
-                            <div class="icons text-center">
-                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+                            <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/ClmPPUoAHtU/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="border:0; border-radius:0; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/ClmPPUoAHtU/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/ClmPPUoAHtU/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="itc-slider__item">
-                            <div class="icons text-center">
-                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+                            <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/ClmLSoyAy2L/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/ClmLSoyAy2L/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/ClmLSoyAy2L/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="itc-slider__item">
-                            <div class="icons text-center">
-                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+                            <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CliXC5_A_H5/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/CliXC5_A_H5/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/CliXC5_A_H5/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="itc-slider__item">
-                            <div class="icons text-center">
-                                <img src="{% static 'images/krisha.png' %}" class="img-fluid rounded-md shadow" alt="">
+
+                        <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/ClayEyRAdyG/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/ClayEyRAdyG/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/ClayEyRAdyG/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/ClN7OATA9bB/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/ClN7OATA9bB/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/ClN7OATA9bB/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CmDyxvYAf0S/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/CmDyxvYAf0S/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/CmDyxvYAf0S/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CmQgbPgI3L3/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/CmQgbPgI3L3/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/CmQgbPgI3L3/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CmZat9AIagF/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/CmZat9AIagF/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/CmZat9AIagF/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="itc-slider__item phone_bg_item phone_item">
+                                <div class="instagram_wrapper">
+                                    <div class="instagram_card">
+                                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Cmoe51WoiDR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/Cmoe51WoiDR/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Посмотреть эту публикацию в Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/Cmoe51WoiDR/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Публикация от ОПЕРАТОР НЕДВИЖИМОСТИ | АСТАНА (@sdelkaplus.kz)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- </div> -->
                     </div>
                 </div>
                 <button class="itc-slider__btn itc-slider__btn_prev"></button>
                 <button class="itc-slider__btn itc-slider__btn_next"></button>
             </div>
         </div>
-        <!-- End Partners-->
+    </section>
+<!--        <section id="service" class="service">-->
+<!--            <div class="container pb-5">-->
+<!--                <div class="text-center pt-5">-->
+<!--                    <h4 class="title mb-4">Наши услуги</h4>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col wrap">-->
+<!--                        <div class="service_item">-->
+<!--                            <img class="service_image" src="{% static 'images/img.jpg' %}" alt="">-->
+<!--                            <div class="service_content">-->
+<!--                                <b>Коммерческая недвижимость</b>-->
+<!--                                <p>-->
+<!--                                    Готовые офисы с красивым и практичным ремонтом позволяет заехать собственному в кратчайшие сроки-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn service_btn">Warning</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col wrap">-->
+<!--                        <div class="service_item">-->
+<!--                            <img class="service_image" src="{% static 'images/img.jpg' %}" alt="">-->
+<!--                            <div class="service_content">-->
+<!--                                <b>Коммерческая недвижимость</b>-->
+<!--                                <p>-->
+<!--                                    Готовые офисы с красивым и практичным ремонтом позволяет заехать собственному в кратчайшие сроки-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn service_btn">Warning</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col wrap">-->
+<!--                        <div class="service_item">-->
+<!--                            <img class="service_image" src="{% static 'images/img.jpg' %}" alt="">-->
+<!--                            <div class="service_content">-->
+<!--                                <b>Коммерческая недвижимость</b>-->
+<!--                                <p>-->
+<!--                                    Готовые офисы с красивым и практичным ремонтом позволяет заехать собственному в кратчайшие сроки-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn service_btn">Warning</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="w-100"></div>-->
+<!--                    <div class="col wrap">-->
+<!--                        <div class="service_item">-->
+<!--                            <img class="service_image" src="{% static 'images/img.jpg' %}" alt="">-->
+<!--                            <div class="service_content">-->
+<!--                                <b>Коммерческая недвижимость</b>-->
+<!--                                <p>-->
+<!--                                    Готовые офисы с красивым и практичным ремонтом позволяет заехать собственному в кратчайшие сроки-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn service_btn">Warning</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col wrap">-->
+<!--                        <div class="service_item">-->
+<!--                            <img class="service_image" src="{% static 'images/img.jpg' %}" alt="">-->
+<!--                            <div class="service_content">-->
+<!--                                <b>Коммерческая недвижимость</b>-->
+<!--                                <p>-->
+<!--                                    Готовые офисы с красивым и практичным ремонтом позволяет заехать собственному в кратчайшие сроки-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn service_btn">Warning</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col wrap">-->
+<!--                        <div class="service_item">-->
+<!--                            <img class="service_image" src="{% static 'images/img.jpg' %}" alt="">-->
+<!--                            <div class="service_content">-->
+<!--                                <b>Коммерческая недвижимость</b>-->
+<!--                                <p>-->
+<!--                                    Готовые офисы с красивым и практичным ремонтом позволяет заехать собственному в кратчайшие сроки-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn service_btn">Warning</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="w-100"></div>-->
+<!--                    <div class="col wrap">-->
+<!--                        <div class="service_item">-->
+<!--                            <img class="service_image" src="{% static 'images/img.jpg' %}" alt="">-->
+<!--                            <div class="service_content">-->
+<!--                                <b>Коммерческая недвижимость</b>-->
+<!--                                <p>-->
+<!--                                    Готовые офисы с красивым и практичным ремонтом позволяет заехать собственному в кратчайшие сроки-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn service_btn">Warning</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col wrap">-->
+<!--                        <div class="service_item">-->
+<!--                            <img class="service_image" src="{% static 'images/img.jpg' %}" alt="">-->
+<!--                            <div class="service_content">-->
+<!--                                <b>Коммерческая недвижимость</b>-->
+<!--                                <p>-->
+<!--                                    Готовые офисы с красивым и практичным ремонтом позволяет заехать собственному в кратчайшие сроки-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn service_btn">Warning</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col wrap">-->
+<!--                        <div class="service_item">-->
+<!--                            <img class="service_image" src="{% static 'images/img.jpg' %}" alt="">-->
+<!--                            <div class="service_content">-->
+<!--                                <b>Коммерческая недвижимость</b>-->
+<!--                                <p>-->
+<!--                                    Готовые офисы с красивым и практичным ремонтом позволяет заехать собственному в кратчайшие сроки-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn service_btn">Warning</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+        <!-- End-->
 
+        <!-- Start advantage -->
+        <section id="advantage" class="advantage">
+            <div class="container pb-5">
+                <div class="text-center pt-5">
+                    <h4 class="title mb-4">Наши преимущества</h4>
+                </div>
+                <div class="row">
+                    <div class="col wrap">
+                        <div class="advantage_item">
+<!--                            <i class="fa fa-user-circle advantage_icon p-3" aria-hidden="true"></i>-->
+<!--                            <img class="p-3" src="{% static 'images/key-lock-1.png' %}" alt=""/>-->
+                            <div class="service_content">
+                                <p>
+                                    Никаких переплат!
+                                    <br/>
+                                    Оплата по факту завершения
+                                    <br/>
+                                    сделки
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col wrap">
+                        <div class="advantage_item">
+<!--                            <i class="fa fa-user-circle advantage_icon p-3" aria-hidden="true"></i>-->
+                            <div class="service_content">
+                                <p>
+                                    Правовой анализ
+                                    <br/>
+                                    документов на
+                                    <br/>
+                                    недвижимость
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col wrap">
+                        <div class="advantage_item">
+<!--                            <i class="fa fa-user-circle advantage_icon p-3" aria-hidden="true"></i>-->
+                            <div class="service_content">
+                                <p>
+                                    Взаимодействуем со
+                                    <br/>
+                                    всеми агентствами
+                                    <br/>
+                                    в городе
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col wrap">
+                        <div class="advantage_item">
+<!--                            <i class="fa fa-user-circle advantage_icon p-3" aria-hidden="true"></i>-->
+                            <div class="service_content">
+                                <p>
+                                    Профессиональная
+                                    <br/>
+                                    фото видеосъёмка
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col wrap">
+                        <div class="advantage_item">
+<!--                            <i class="fa fa-user-circle advantage_icon p-3" aria-hidden="true"></i>-->
+                            <div class="service_content">
+                                <p>
+                                    Экспресс оценка
+                                    <br/>
+                                    недвижимости
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col wrap">
+                        <div class="advantage_item">
+<!--                            <i class="fa fa-user-circle advantage_icon p-3" aria-hidden="true"></i>-->
+                            <div class="service_content">
+                                <p>
+                                    Точечный подбор
+                                    <br/>
+                                    недвижимости
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col wrap">
+                        <div class="advantage_item">
+<!--                            <i class="fa fa-user-circle advantage_icon p-3" aria-hidden="true"></i>-->
+                            <div class="service_content">
+                                <p>
+                                    Бесплатное оформление
+                                    <br/>
+                                    задатков, и организация
+                                    <br/>
+                                    сделок
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col wrap">
+                        <div class="advantage_item">
+<!--                            <i class="fa fa-user-circle advantage_icon p-3" aria-hidden="true"></i>-->
+                            <div class="service_content">
+                                <p>
+                                    Активно сотрудничаем с
+                                    <br/>
+                                    банками и оценочными
+                                    <br/>
+                                    компаниями
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col wrap">
+                        <div class="advantage_item">
+<!--                            <i class="fa fa-user-circle advantage_icon p-3" aria-hidden="true"></i>-->
+                            <div class="service_content">
+                                <p>
+                                    Дарим бонусы
+                                    <br/>
+                                    нашим клиентам
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-->
         <!-- Start -->
-        <section class="section bg-light overflow-hidden" id="about">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-5 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
-                        <div class="position-relative">
-                            <img src="{% static 'images/about.png' %}" class="rounded-md img-fluid mx-auto d-block" alt="">
-                            <div class="play-icon">
-                                <a href="#!" data-type="youtube" data-id="KbN5BX_pA0Q" class="play-btn lightbox">
-                                    <i class="mdi mdi-play text-primary rounded-circle bg-white shadow"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-lg-7 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
-                        <div class="section-title ms-lg-5">
-                            <h4 class="title mb-4">96% клиентов довольны<br>нашими специалистами.</h4>
-                            <p class="text-muted para-desc mb-0">Мы успешно работает на рынке недвижимости с 2017 года.
-За это время мы зарекомендовали себя как надежное, успешное и современное агентство недвижимости.
-Мы каждый день улучшаем наш сервис, получая обратную связь от клиентов и партнеров.
-Наша цель - в недалекой перспективе стать агентством недвижимости №1 в сервисе и заботе о клиенте!</p>
-
-                            <div class="d-inline-flex rounded-md shadow p-4 bg-white mt-4">
-                                <i class="uil uil-shop display-4 mb-0 opacity-5"></i>
-
-                                <div class="content ms-3">
-                                    <h5>Скорее свяжитесь с нами!</h5>
-                                    <p class="text-muted">Напишите нам и мы проконсультируем<br> вас и ответим на все ваши вопросы.</p>
-                                    <a href="#contact" class="btn btn-primary">Купить</a>
-                                    <a href="#contact" class="btn btn-primary">Продать</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-
-            <div class="container mt-100 mt-60">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 order-2 order-lg-1 mt-4 pt-2 mt-lg-0 pt-lg-0">
-                        <div class="section-title me-lg-4">
-                            <h1 class="title mb-3">Почему с нами лучше?</h1>
-<!--                            <p class="para-desc text-muted">This is just a simple text made for this unique and awesome template, you can replace it with any text.</p>-->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center pt-4">
-                                        <i class="uil uil-pathfinder text-gradient-primary h2"></i>
-                                        <div class="ms-3">
-                                            <h5>Выход на рынок</h5>
-                                            <p class="text-muted mb-0">c 2017 года</p>
-                                        </div>
-                                    </div>
-                                </div><!--end col-->
-                                 <div class="col-12">
-                                    <div class="d-flex align-items-center pt-4">
-                                        <i class="uil uil-pathfinder text-gradient-primary h2"></i>
-                                        <div class="ms-3">
-                                            <h5>Ваша статистика</h5>
-                                            <p class="text-muted mb-0">Ваша статистика</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                 <div class="col-12">
-                                    <div class="d-flex align-items-center pt-4">
-                                        <i class="uil uil-pathfinder text-gradient-primary h2"></i>
-                                        <div class="ms-3">
-                                            <h5>Ваша статистика</h5>
-                                            <p class="text-muted mb-0">Ваша статистика</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center pt-4">
-                                        <i class="uil uil-pathfinder text-gradient-primary h2"></i>
-                                        <div class="ms-3">
-                                            <h5>Ваша статистика</h5>
-                                            <p class="text-muted mb-0">Ваша статистика</p>
-                                        </div>
-                                    </div>
-                                </div><!--end col-->
-
-<!--                                <div class="col-12 pt-4">-->
-<!--                                    <a href="" class="btn btn-outline-primary">Install Now <i class="uil uil-arrow-right"></i></a>-->
-<!--                                </div>&lt;!&ndash;end col&ndash;&gt;-->
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-lg-6 order-1 order-lg-2">
-                        <div class="laptop-image">
-                            <div class="position-relative">
-                                <img src="{% static 'images/building.png' %}" class="mx-auto d-block" alt="">
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section><!--end section-->
-        <!-- End -->
-
-        <!-- Start -->
-        <section class="section" id="service">
+        <section class="section" id="team">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 mb-4 pb-2">
@@ -564,7 +958,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="section-title text-center mb-4 pb-2">
-                            <h4 class="title text-white mb-4">Желаете найти работу риэлтором?</h4>
+                            <h4 class="title text-white mb-4">Хочешь финансовую независимость?</h4>
                             <p class="text-white-50 mx-auto para-desc mb-0">Скорее присоединяйтесь к нашему дружелюбному и профессиональному коллективу!</p>
                         </div>
                     </div><!--end col-->
@@ -602,7 +996,7 @@
                         <div class="pricing pricing-primary shadow rounded-md text-center bg-white">
                             <div class="border-bottom p-4">
 <!--                                <div class="icons text-center mb-4">-->
-<!--                                    <i class="uil uil-trees text-white d-flex align-items-center justify-content-center rounded-pill h3 mb-0 mx-auto"></i>-->
+    <!--                                    <i class="uil uil-trees text-white d-flex align-items-center justify-content-center rounded-pill h3 mb-0 mx-auto"></i>-->
 <!--                                </div>-->
 
                                 <h3 class="text-gradient-primary">Квартиры на вторичном рынке </h3>
@@ -695,6 +1089,25 @@
         </section><!--end section-->
         <!-- End -->
 
+        <!-- Start bonus-->
+        <section id="bonus" class="bonus">
+            <div class="bonus_wrapper">
+                <div class="bonus_main">
+                    <div class="bonus_container">
+                        <div class="bonus_content">
+                            Получайте бесплатные бонусы<br/>за куплю/продажу вашей<br/> недвижимости от компании SdelkaPlus
+                        </div>
+                        <img src="{% static 'images/bonus.png' %}" alt="" class="bonus_img"/>
+                    </div>
+                </div>
+                <div class="bonus_list">
+                    {%block bonus%}
+                    {%endblock%}
+                </div>
+            </div>
+        </section>
+        <!--End-->
+
         <!-- Start -->
         <section class="section bg-light" id="blog">
             <div class="container">
@@ -718,9 +1131,10 @@
 
 
         <!-- 2gis -->
+        <!-- Отзывы наших клиентов-->
 <!--        <script src="https://res.smartwidgets.ru/app.js" defer></script>-->
 <!--        <div class="sw-app" data-app="4a17b6a7b7e395552ed52630fbb212ed"></div>-->
-        <!-- end 2giss -->
+        <!-- end 2gis -->
 
 
         <!-- contact form -->
@@ -757,9 +1171,6 @@
 
                         <div class="col-sm-3 mt-4 mt-sm-0 pt-2 pt-sm-0">
                             <ul class="list-unstyled social-icon foot-social-icon text-sm-end mb-0">
-<!--                                <li class="list-inline-item mb-0"><a href=""><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>-->
-<!--                                <li class="list-inline-item mb-0"><a href=""><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>-->
-<!--                                <li class="list-inline-item mb-0"><a href=""><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>-->
                                 <li class="list-inline-item mb-0"><a href="https://instagram.com/sdelkaplus.kz?igshid=YmMyMTA2M2Y="><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
                             </ul><!--end icon-->
                         </div><!--end col-->

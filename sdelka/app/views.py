@@ -6,6 +6,10 @@ import requests
 def index(req):
     items = reversed(Blog.objects.all())
     people = People.objects.all()
+    certificate = reversed(BonusCertificate.objects.all())
+    organs = reversed(StateOrganPartner.objects.all())
+    banks = reversed(BankPartner.objects.all())
+    builders = reversed(BuilderPartner.objects.all())
     headers_list = 'Хотел бы продать квартиру', 'Хотел бы купить квартиру',\
                    'Не могли бы вы подобрать мне квартиру'
 
@@ -49,5 +53,16 @@ def index(req):
         'hr_form': hr_form,
         'items': items,
         'people': people,
+        'certificate': certificate,
+        'organs': organs,
+        'banks': banks,
+        'builders': builders,
     }
     return render(req, 'app/index.html', context)
+
+def test(req):
+    items = reversed(Estate.objects.all())
+    context = {
+        'items' : items,
+    }
+    return render(req, 'app/test.html', context)

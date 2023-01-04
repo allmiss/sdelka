@@ -1,0 +1,132 @@
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+    <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon">
+    <link href="{% static 'css/itc-slider.css' %}" rel="stylesheet">
+    <script src="{% static 'js/itc-slider.js' %}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Bootstrap core CSS -->
+
+    <link href="{% static 'css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/tobii.min.css' %}" type="text/css" rel="stylesheet" />
+    <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet">
+    <!-- Custom  Css -->
+    <link href="{% static 'css/style.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt" />
+
+    <style>
+        .itc-slider__item {
+            min-height: auto;
+            padding: 15px;
+<!--            flex: 0 0 50%;-->
+            max-width: 50%;
+            user-select: none;
+            will-change: transform;
+        }
+        .my-flex-cont {
+            display: flex;
+            flex-flow: column wrap;
+            height: 200px;
+        }
+        .my-flex-box {
+             margin: 0 auto;
+             padding: 20px;
+             flex: 0 1 auto;
+             align-self: center;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <div class="itc-slider" data-slider="itc-slider" data-loop="true" data-autoplay="true">
+        <div class="itc-slider__wrapper">
+            <div class="itc-slider__items my-flex-cont">
+<!--                {% for item in items %}-->
+<!--                    <div class="itc-slider__item d-flex flex-column justify-content-between">-->
+<!--                        <div>-->
+<!--                            <div class="icons text-center">-->
+<!--                                <img src="{{char.picture.url}}" class="img-fluid rounded-md shadow" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="content mt-4 pt-2 justify-content-center align-self-center">-->
+<!--                            <a href="" class="title text-dark h5">{{ item.name }}</a>-->
+<!--                            <img src="{{ item.picture.url }}" class="img-fluid rounded-md shadow" alt="">-->
+<!--                            <p class="text-muted mt-3" style="-->
+<!--                            max-height: 150px;-->
+<!--                            overflow: hidden;-->
+<!--        position: relative;">{{ item.price }}</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                {% endfor %}-->
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 1</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 2</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 3</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 4</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 5</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 6</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 7</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 8</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 9</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 10</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 11</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 12</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 13</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 14</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 15</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 16</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 17</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 18</div>
+                </div>
+                <div class="itc-slider__item d-flex flex-column justify-content-between">
+                    <div class="my-flex-box">Блок 19</div>
+                </div>
+            </div>
+        </div>
+        <button class="itc-slider__btn itc-slider__btn_prev"></button>
+        <button class="itc-slider__btn itc-slider__btn_next"></button>
+    </div>
+</div>
+</body>
+</html>

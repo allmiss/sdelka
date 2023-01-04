@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-b)_=o&1)p&bnqx6#l7q$-3jqk!sagse*h$$*#euggk))ig^2dm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['109.248.170.253', 'www.onsp.kz', 'onsp.kz', 'localhost']
 
 
 # Application definition
@@ -67,10 +67,10 @@ WSGI_APPLICATION = 'sdelka.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sdelkaDb',
-        'USER': 'postgres',
-        'PASSWORD': 'almas',
+        'USER': 'almas',
+        'PASSWORD': 'DcvlH1MI',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -111,7 +111,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -123,9 +123,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'assets'),
+    'root/sdelka/sdelka/sdelka/static'
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

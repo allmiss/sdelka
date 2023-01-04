@@ -1,9 +1,149 @@
 {% extends 'app/base.html' %}
+
+
+
+
+{% block StateOrgan %}
+<style>
+    .partner_item{
+        max-height: 150px;
+    }
+    .partner_img{
+        display: block;
+        margin: 0 auto;
+        object-fit: cover;
+        width: auto;
+        height: 100%;
+    }
+
+</style>
+{% for organ in organs %}
+    <div class="itc-slider__item partner_item">
+        <div class="icons text-center">
+            <img src="{{organ.picture.url}}" class="img-fluid rounded-md shadow partner_img" alt="">
+        </div>
+    </div>
+{%endfor%}
+{%endblock%}
+
+{% block BankPartner %}
+{% for bank in banks %}
+    <div class="itc-slider__item partner_item">
+        <div class="icons text-center">
+            <img src="{{bank.picture.url}}" class="img-fluid rounded-md shadow partner_img" alt="">
+        </div>
+    </div>
+{%endfor%}
+{%endblock%}
+
+{% block BuilderPartner %}
+{% for builder in builders %}
+    <div class="itc-slider__item partner_item">
+        <div class="icons text-center">
+            <img src="{{builder.picture.url}}" class="img-fluid rounded-md shadow partner_img" alt="">
+        </div>
+    </div>
+{%endfor%}
+{%endblock%}
+
 {% block people %}
 <style>
     .number{
         display: none;
     }
+    .bonus{
+    background-color: #f2f6fa;
+    padding-bottom: 150px;
+}
+.bonus_wrapper{
+    max-width: 75.125rem;
+    margin: 0 auto;
+}
+.bonus_container{
+    display: flex;
+    justify-content: space-between;
+}
+.bonus_content{
+    padding-top: 150px;
+    color: #4f4f4f;
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+}
+.bonus_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 5px 30px -10px #bdbdbd;
+    flex: 1 1 auto;
+    -webkit-box-flex: 1;
+    margin: 1.5rem .75rem 0;
+    width: 300px;
+}
+.bonus_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.bonus_image>a{
+    color: #2A72EE;
+    background-color: transparent;
+    position:relative;
+}
+.bonus_image>a>div{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    height: 200px;
+}
+.bonus_image>a>div>img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    vertical-align: middle;
+    border-style: none;
+}
+.bonus_description{
+    display: block;
+    padding: 0 20px 20px;
+}
+.bonus_description>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #e0e0e0;
+}
+.bonus_title {
+    margin-right: 10px;
+    padding-top: 20px;
+}
+.bonus_title>a {
+    color: #337ab7;
+    text-decoration: none;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+}
+.bonus_title>div {
+    font-size: 14px;
+    color: #424242;
+}
+.bonus_icons {
+    padding-top: 20px;
+    display: flex;
+}
+.bonus_discount-proc {
+    background-color: #A31A05;
+}
+.bonus_discount {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 10px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
 </style>
 <div class="container">
   <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="true">
@@ -33,15 +173,63 @@
         {% endfor %}
       </div>
     </div>
-        <button class="itc-slider__btn itc-slider__btn_prev"></button>
-        <button class="itc-slider__btn itc-slider__btn_next"></button>
-  </div>
+    <button class="itc-slider__btn itc-slider__btn_prev"></button>
+    <button class="itc-slider__btn itc-slider__btn_next"></button>
+    </div>
 </div>
 {% endblock %}
 
 {% block hr%}
 {{ hr_form.hr_number }}
 {%endblock%}
+
+
+{%block bonus%}
+{% for el in certificate %}
+    <div class="bonus_card">
+        <div class="bonus_image">
+            <a href="#openBonus_{{ el.id }}" data-bs-toggle="modal" class="openBonusDialog">
+                <div>
+                    <img src="{{el.picture.url}}" alt=""/>
+                </div>
+            </a>
+        </div>
+        <div class="bonus_description">
+            <div>
+                <div class="bonus_title">
+                    <a href="#openBonus_{{ el.id }}" data-bs-toggle="modal" class="openBonusDialog">{{el.name}}</a>
+                    <div>
+                        {{el.category}}
+                    </div>
+                </div>
+                <div class="bonus_icons">
+                    <div class="bonus_discount bonus_discount-proc">
+                        {{el.discount_percent}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+        <div class="modal fade absolute-center" id="openBonus_{{ el.id }}" tabindex="-1" aria-bs-labelledby="bonus-single-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        {{el.name}}
+                        <button class="btn-close" data-bs-dismiss="modal" aria-bs-label="close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{el.picture.url}}" class="img-fluid rounded-md shadow mb-5" alt="">
+
+                        <p name="bonusId" id="bonusId">{{ el.content|linebreaks }}</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    <!-- Modal -->
+{% endfor %}
+{%endblock%}
+
 
 {% block blogs %}
 {% for el in items %}
@@ -55,12 +243,12 @@
                         overflow: hidden;
                         position: relative;">{{ el.content }}</p>
                     <div class="mt-3">
-                        <a class="btn btn-link primary openBlogDialog" data-bs-toggle="modal" href="#openBlog" data-bs-id="3">Узнать больше <i class="uil uil-arrow-right"></i></a>
+                        <a class="btn btn-link primary openBlogDialog" data-bs-toggle="modal" href="#openBlog_{{ el.id }}">Узнать больше <i class="uil uil-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
             <!-- Modal -->
-            <div class="modal fade absolute-center" id="openBlog" tabindex="-1" aria-bs-labelledby="blog-single-label" aria-hidden="true">
+            <div class="modal fade absolute-center" id="openBlog_{{ el.id }}" tabindex="-1" aria-bs-labelledby="blog-single-label" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -68,9 +256,9 @@
                             <button class="btn-close" data-bs-dismiss="modal" aria-bs-label="close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="{{el.picture.url}}" class="img-fluid rounded-md shadow" alt="">
+                            <img src="{{el.picture.url}}" class="img-fluid rounded-md shadow mb-5" alt="">
 
-                            <p name="elId" id="elId">{{ el.content }}</p>
+                            <p name="elId" id="elId">{{ el.content|linebreaks }}</p>
                             </div>
                     </div>
                 </div>
@@ -144,5 +332,9 @@
 $(document).on("click", ".openBlogDialog", function () {
      var myBlogId = $(this).data('id');
      $(".modal-body #elId").val( myBlogId );
+});
+$(document).on("click", ".openBonusDialog", function () {
+     var myBonusId = $(this).data('id');
+     $(".modal-body #bonusId").val( myBonusId );
 });
 </script>
