@@ -1,0 +1,10 @@
+
+.instagram_wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+.instagram_card{
+    max-height: 450px;
+    overflow: hidden;
+}

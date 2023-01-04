@@ -1,0 +1,275 @@
+/* Eric Meyer's CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End of Eric Meyer's CSS Reset */
+
+html {
+	height: 100%;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block;
+}
+body {
+	font: 14px/18px Arial, sans-serif;
+	height: 100%;
+	overflow-x:hidden;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+.slider {
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+}
+.slider-content {
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.slide {
+	height: 100%;
+	width: 100%;
+	display:table;
+}
+.slide > div {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color:#fff;
+	text-shadow:0 1px 4px #000;
+}
+.slide > div h2 {
+	font-size: 6em;
+	line-height: 2em;
+	font-weight: bold;
+}
+.slide > div p {
+	font-size: 22px;
+	line-height: 1.4em;
+	font-style: italic;
+}
+.second{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 58px;
+	margin-bottom: 25px;
+}
+.all{
+	display: flex !important;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.all > .second p{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 6vw;
+	line-height: 91.3%;
+	/* or 110px */
+
+	text-align: center;
+	text-transform: uppercase;
+
+	color: #FFFFFF;
+
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.sl1 {
+	/* background: url(../img/pushkin.jpg) no-repeat; */
+	background: url(../img/video.MP4);
+	background-size: cover;
+}
+.sl2 {
+	background: url(second_hero.png) no-repeat;
+	background-size: cover;
+}
+.second_cards{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.top_card{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 29vh;
+	max-height: auto;
+}
+.top_card img{
+	/* max-width: 16vw; */
+}
+.name{
+	background: #D9D9D9;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 18px;
+	margin-bottom: 10px;
+
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 3vw;
+	line-height: 78px;
+	/* identical to box height */
+
+
+	color: #000000;
+}
+.sl3 {
+	background: url(../img/mayakovskiy.jpg) no-repeat;
+	background-size: cover;
+}
+.sl4 {
+	background: url(../img/lermontov.jpg) no-repeat;
+	background-size: cover;
+}
+.more {
+	color: #000;
+	text-decoration: none;
+	padding: 7px 15px;
+	background: #FFD800;
+	text-shadow:none;
+	line-height: 8em;
+	font-size:16px;
+}
+.more:hover {
+	background: #FFBB02;
+
+}
+.slider-controls {
+	position:absolute;
+	left:0px;
+	bottom:30px;
+	text-align:center;
+	width: 100%;
+}
+.slider-controls .control-slide {
+	margin:2px;
+	display:inline-block;
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	text-indent:-9999px;
+	background:#fff;
+	border-radius: 50%;
+	-webkit-border-radius:50%;
+}
+.slider-controls .control-slide:hover {
+	background: #FFED87;
+	cursor: pointer;
+}
+.slider-controls .control-slide.active {
+	background: #FFD800;
+}
+/* Middle
+-----------------------------------------------------------------------------*/
+.content {
+	width:100%;
+	padding-top:40px;
+
+}
+.content main {
+	width:1000px;
+	margin:0 auto;
+	height:auto;
+	line-height:1.4em;
+}
+.content main p {
+	margin-bottom:20px;
+}
+
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+@media (max-width: 867px) {
+    .slide > div h2{
+        font-size: 5em;
+    }
+	.second {
+		margin-bottom: 12%;
+	}
+	.top_card {
+		max-width: 22vh;
+	}
+}
+
+@media (max-width: 610px) {
+    .slide > div h2{
+        font-size: 4em;
+    }
+	.second {
+		margin-bottom: 22vh;
+	}
+	.top_card {
+		max-width: 17vh;
+	}
+}
+
+@media (max-width: 517px) {
+    .slide > div h2{
+        font-size: 3em;
+    }
+}
+@media (max-width: 438px) {
+	.second{
+		margin-bottom: 0;
+	}
+    .second_cards{
+		flex-direction: column;
+		align-items: center;
+	}
+	.slider{
+		height: 140vh;
+	}
+}
+@media (max-width: 400px) {
+    .slide > div h2{
+        font-size: 2em;
+    }
+}
